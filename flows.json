@@ -965,6 +965,7 @@
         "name": "updateHostAPD",
         "func": "var template = `sudo tee /etc/hostapd/hostapd.conf <<EOF\n\n# update with relevant country\ncountry_code=CA\ninterface=wlan0\n\n## un-comment below line if setting up extended network (options 3)\n# bridge=br0\n\n## comment out below line if setting extended network (options 3)\ndriver=nl80211\n\nssid=${msg.payload.ap_ssid}\nhw_mode=g\nchannel=6\nwmm_enabled=0\nmacaddr_acl=0\nauth_algs=1\nignore_broadcast_ssid=0\nwpa=2\nwpa_passphrase=${msg.payload.ap_psk}\nwpa_key_mgmt=WPA-PSK\nwpa_pairwise=TKIP\nrsn_pairwise=CCMP\n\n\nEOF\\n\n`\n\nmsg.payload = template\n\nreturn msg;",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
