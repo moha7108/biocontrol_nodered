@@ -340,10 +340,7 @@
             [
                 "1a2fc62c1335c250",
                 "eb7f6bf25a93a989",
-                "c82a99b2d380754c",
-                "b68e4f23062e2601",
-                "2dd126be934592ee",
-                "cd8cf3edd217c10b"
+                "c82a99b2d380754c"
             ]
         ]
     },
@@ -412,10 +409,7 @@
         "y": 40,
         "wires": [
             [
-                "2583b1492e7e7673",
-                "b68e4f23062e2601",
-                "2dd126be934592ee",
-                "cd8cf3edd217c10b"
+                "2583b1492e7e7673"
             ]
         ]
     },
@@ -927,7 +921,7 @@
         "z": "6ec95de2e0350d99",
         "name": "Configure AP",
         "label": "",
-        "group": "",
+        "group": "cf2db1f0d54fcfea",
         "order": 12,
         "width": 0,
         "height": 0,
@@ -958,8 +952,8 @@
         "topicType": "msg",
         "splitLayout": "",
         "className": "",
-        "x": 250,
-        "y": 1040,
+        "x": 330,
+        "y": 600,
         "wires": [
             [
                 "a3150196496c0df9",
@@ -978,8 +972,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 440,
-        "y": 1040,
+        "x": 520,
+        "y": 600,
         "wires": [
             [
                 "9cc403e4a387750a"
@@ -998,8 +992,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "UpdateConf",
-        "x": 650,
-        "y": 1040,
+        "x": 730,
+        "y": 600,
         "wires": [
             [
                 "e5c2c9852b5dd108"
@@ -1020,8 +1014,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "reconfigure",
-        "x": 850,
-        "y": 1020,
+        "x": 930,
+        "y": 580,
         "wires": [
             [],
             [],
@@ -1047,8 +1041,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 440,
-        "y": 1160,
+        "x": 520,
+        "y": 720,
         "wires": [
             [
                 "2ca61548bc28022b"
@@ -1070,237 +1064,9 @@
         "className": "",
         "topic": "",
         "name": "",
-        "x": 690,
-        "y": 1160,
+        "x": 770,
+        "y": 720,
         "wires": [
-            []
-        ]
-    },
-    {
-        "id": "77acb04775aeac30",
-        "type": "ui_text",
-        "z": "6ec95de2e0350d99",
-        "group": "",
-        "order": 6,
-        "width": 0,
-        "height": 0,
-        "name": "(WLAN0) Access Point :",
-        "label": "",
-        "format": "(WLAN0) Access Point:",
-        "layout": "col-center",
-        "className": "",
-        "x": 450,
-        "y": 520,
-        "wires": []
-    },
-    {
-        "id": "b68e4f23062e2601",
-        "type": "exec",
-        "z": "6ec95de2e0350d99",
-        "command": "ifconfig wlan0",
-        "addpay": false,
-        "append": "",
-        "useSpawn": "false",
-        "timer": "",
-        "winHide": false,
-        "oldrc": false,
-        "name": "getInfo AP",
-        "x": 330,
-        "y": 621,
-        "wires": [
-            [
-                "dfe93606e9f7458d"
-            ],
-            [],
-            []
-        ]
-    },
-    {
-        "id": "dfe93606e9f7458d",
-        "type": "function",
-        "z": "6ec95de2e0350d99",
-        "name": "parseInfo",
-        "func": "var ip = msg.payload.match(/inet ([0-9\\.]+)/)[1]\nvar mask = msg.payload.match(/netmask ([0-9\\.]+)/)[1]\nvar broadcast = msg.payload.match(/broadcast ([0-9\\.]+)/)[1]\n\n\nnode.send({topic: 'ip', payload: ip})\nnode.send({topic: 'mask', payload: mask})\nnode.send({topic: 'broadcast', payload: broadcast})",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 520,
-        "y": 608,
-        "wires": [
-            [
-                "2ed8bdd04e96ebfe"
-            ]
-        ]
-    },
-    {
-        "id": "2ed8bdd04e96ebfe",
-        "type": "switch",
-        "z": "6ec95de2e0350d99",
-        "name": "",
-        "property": "topic",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "ip",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "mask",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "broadcast",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 3,
-        "x": 690,
-        "y": 621,
-        "wires": [
-            [
-                "ee8b3b36e496b570"
-            ],
-            [
-                "862c59d5a1590d8a"
-            ],
-            [
-                "71c36bc6a51bc7b3"
-            ]
-        ]
-    },
-    {
-        "id": "ee8b3b36e496b570",
-        "type": "ui_text",
-        "z": "6ec95de2e0350d99",
-        "group": "",
-        "order": 9,
-        "width": 0,
-        "height": 0,
-        "name": "AP IP",
-        "label": "IP",
-        "format": "{{msg.payload || '---'}}",
-        "layout": "row-spread",
-        "className": "",
-        "x": 870,
-        "y": 581,
-        "wires": []
-    },
-    {
-        "id": "862c59d5a1590d8a",
-        "type": "ui_text",
-        "z": "6ec95de2e0350d99",
-        "group": "",
-        "order": 10,
-        "width": 0,
-        "height": 0,
-        "name": "Netmask AP",
-        "label": "Netmask",
-        "format": "{{msg.payload || '---'}}",
-        "layout": "row-spread",
-        "className": "",
-        "x": 890,
-        "y": 621,
-        "wires": []
-    },
-    {
-        "id": "71c36bc6a51bc7b3",
-        "type": "ui_text",
-        "z": "6ec95de2e0350d99",
-        "group": "",
-        "order": 11,
-        "width": 0,
-        "height": 0,
-        "name": "Broadcast AP",
-        "label": "Broadcast",
-        "format": "{{msg.payload || '---'}}",
-        "layout": "row-spread",
-        "className": "",
-        "x": 900,
-        "y": 661,
-        "wires": []
-    },
-    {
-        "id": "cd8cf3edd217c10b",
-        "type": "exec",
-        "z": "6ec95de2e0350d99",
-        "command": "iw dev wlan0 info |grep ssid | sed 's/ssid//g' | xargs",
-        "addpay": false,
-        "append": "",
-        "useSpawn": "false",
-        "timer": "",
-        "winHide": false,
-        "oldrc": false,
-        "name": "getCurrentSSID AP",
-        "x": 350,
-        "y": 760,
-        "wires": [
-            [
-                "7517af79fab7725a"
-            ],
-            [],
-            []
-        ]
-    },
-    {
-        "id": "7517af79fab7725a",
-        "type": "ui_text",
-        "z": "6ec95de2e0350d99",
-        "group": "",
-        "order": 7,
-        "width": 0,
-        "height": 0,
-        "name": "SSID AP",
-        "label": "SSID",
-        "format": "{{msg.payload || '---'}}",
-        "layout": "row-spread",
-        "className": "",
-        "x": 600,
-        "y": 780,
-        "wires": []
-    },
-    {
-        "id": "d388071e11e2ac5f",
-        "type": "ui_text",
-        "z": "6ec95de2e0350d99",
-        "group": "",
-        "order": 8,
-        "width": 0,
-        "height": 0,
-        "name": "PSK AP",
-        "label": "PSK",
-        "format": "{{msg.payload || '---'}}",
-        "layout": "row-spread",
-        "className": "",
-        "x": 880,
-        "y": 700,
-        "wires": []
-    },
-    {
-        "id": "2dd126be934592ee",
-        "type": "exec",
-        "z": "6ec95de2e0350d99",
-        "command": "sudo cat /etc/hostapd/hostapd.conf |grep wpa_passphrase= | sed 's/wpa_passphrase=//g' | xargs",
-        "addpay": false,
-        "append": "",
-        "useSpawn": "false",
-        "timer": "",
-        "winHide": false,
-        "oldrc": false,
-        "name": "getPSK AP",
-        "x": 330,
-        "y": 680,
-        "wires": [
-            [
-                "d388071e11e2ac5f"
-            ],
-            [],
             []
         ]
     },
