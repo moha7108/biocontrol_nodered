@@ -270,20 +270,24 @@
     {
         "id": "102d980614be1665",
         "type": "ui_group",
-        "name": "Group 1",
+        "name": "Configure Network",
         "tab": "907bbe60.b555f",
-        "order": 1,
+        "order": 2,
         "disp": true,
-        "width": 6
+        "width": "6",
+        "collapse": false,
+        "className": ""
     },
     {
         "id": "cf2db1f0d54fcfea",
         "type": "ui_group",
-        "name": "Group 2",
+        "name": "Access Point",
         "tab": "907bbe60.b555f",
-        "order": 2,
+        "order": 1,
         "disp": true,
-        "width": 6
+        "width": "6",
+        "collapse": false,
+        "className": ""
     },
     {
         "id": "1a2fc62c1335c250",
