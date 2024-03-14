@@ -956,8 +956,8 @@
         "topicType": "msg",
         "splitLayout": "",
         "className": "",
-        "x": 330,
-        "y": 600,
+        "x": 90,
+        "y": 440,
         "wires": [
             [
                 "a3150196496c0df9",
@@ -976,8 +976,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 520,
-        "y": 600,
+        "x": 280,
+        "y": 440,
         "wires": [
             [
                 "9cc403e4a387750a"
@@ -996,8 +996,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "UpdateConf",
-        "x": 730,
-        "y": 600,
+        "x": 490,
+        "y": 440,
         "wires": [
             [
                 "e5c2c9852b5dd108"
@@ -1018,8 +1018,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "reconfigure",
-        "x": 930,
-        "y": 580,
+        "x": 690,
+        "y": 420,
         "wires": [
             [],
             [],
@@ -1045,8 +1045,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 520,
-        "y": 720,
+        "x": 280,
+        "y": 560,
         "wires": [
             [
                 "2ca61548bc28022b"
@@ -1068,8 +1068,8 @@
         "className": "",
         "topic": "",
         "name": "",
-        "x": 770,
-        "y": 720,
+        "x": 530,
+        "y": 560,
         "wires": [
             []
         ]
