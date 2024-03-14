@@ -990,7 +990,7 @@
         "id": "8a920102ebd9fdad",
         "type": "exec",
         "z": "6ec95de2e0350d99",
-        "command": "sudo cat /etc/hostapd/hostapd.conf | grep ssid= | sed 's/ssid=//g' | xargs",
+        "command": "sudo cat /etc/hostapd/hostapd.conf | grep '^ssid=' | sed 's/ssid=//g' | xargs",
         "addpay": false,
         "append": "",
         "useSpawn": "false",
