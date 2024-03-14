@@ -982,15 +982,15 @@
         "font": "",
         "fontSize": "",
         "color": "#000000",
-        "x": 520,
-        "y": 900,
+        "x": 560,
+        "y": 680,
         "wires": []
     },
     {
         "id": "8a920102ebd9fdad",
         "type": "exec",
         "z": "6ec95de2e0350d99",
-        "command": "iw dev wlan0 info |grep ssid | sed 's/ssid//g' | xargs",
+        "command": "sudo cat /etc/hostapd/hostapd.conf | grep ssid= | sed 's/ssid=//g' | xargs",
         "addpay": false,
         "append": "",
         "useSpawn": "false",
@@ -999,7 +999,7 @@
         "oldrc": false,
         "name": "getCurrentSSID AP",
         "x": 270,
-        "y": 880,
+        "y": 700,
         "wires": [
             [
                 "72339622e8b22c8c"
