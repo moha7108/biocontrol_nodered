@@ -232,7 +232,8 @@
             [
                 "1a2fc62c1335c250",
                 "eb7f6bf25a93a989",
-                "c82a99b2d380754c"
+                "c82a99b2d380754c",
+                "8a920102ebd9fdad"
             ]
         ]
     },
@@ -301,7 +302,8 @@
         "y": 40,
         "wires": [
             [
-                "2583b1492e7e7673"
+                "2583b1492e7e7673",
+                "02404491789156b5"
             ]
         ]
     },
@@ -420,7 +422,7 @@
         "height": 0,
         "name": "",
         "label": "IP",
-        "format": "{{msg.payload || '---'}}",
+        "format": "{{msg.payload || 'Hotspot Mode'}}",
         "layout": "row-spread",
         "className": "",
         "style": false,
@@ -764,7 +766,7 @@
         "z": "6ec95de2e0350d99",
         "name": "",
         "group": "cf2db1f0d54fcfea",
-        "order": 7,
+        "order": 9,
         "width": 0,
         "height": 0,
         "passthru": false,
@@ -814,7 +816,7 @@
         "name": "Configure AP",
         "label": "",
         "group": "cf2db1f0d54fcfea",
-        "order": 6,
+        "order": 8,
         "width": 0,
         "height": 0,
         "options": [
@@ -962,5 +964,91 @@
         "wires": [
             []
         ]
+    },
+    {
+        "id": "72339622e8b22c8c",
+        "type": "ui_text",
+        "z": "6ec95de2e0350d99",
+        "group": "cf2db1f0d54fcfea",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "name": "SSID AP",
+        "label": "SSID",
+        "format": "{{msg.payload || '---'}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 520,
+        "y": 900,
+        "wires": []
+    },
+    {
+        "id": "8a920102ebd9fdad",
+        "type": "exec",
+        "z": "6ec95de2e0350d99",
+        "command": "iw dev wlan0 info |grep ssid | sed 's/ssid//g' | xargs",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "getCurrentSSID AP",
+        "x": 270,
+        "y": 880,
+        "wires": [
+            [
+                "72339622e8b22c8c"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "02404491789156b5",
+        "type": "exec",
+        "z": "6ec95de2e0350d99",
+        "command": "sudo cat /etc/hostapd/hostapd.conf |grep wpa_passphrase= | sed 's/wpa_passphrase=//g' | xargs",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "getPSK AP",
+        "x": 250,
+        "y": 800,
+        "wires": [
+            [
+                "6f55a5577591a923"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "6f55a5577591a923",
+        "type": "ui_text",
+        "z": "6ec95de2e0350d99",
+        "group": "cf2db1f0d54fcfea",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "name": "PSK AP",
+        "label": "PSK",
+        "format": "{{msg.payload || '---'}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 800,
+        "y": 820,
+        "wires": []
     }
 ]
