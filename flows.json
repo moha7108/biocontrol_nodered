@@ -1796,7 +1796,7 @@
         "name": "",
         "filename": "payload",
         "filenameType": "msg",
-        "format": "",
+        "format": "utf8",
         "chunk": false,
         "sendError": false,
         "encoding": "none",
@@ -1805,7 +1805,7 @@
         "y": 780,
         "wires": [
             [
-                "ec7698378115ebe6"
+                "6b53949b53d887be"
             ]
         ]
     },
@@ -1847,9 +1847,25 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 820,
+        "x": 1040,
         "y": 800,
         "wires": []
+    },
+    {
+        "id": "6b53949b53d887be",
+        "type": "json",
+        "z": "84c549d1e2d30361",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 790,
+        "y": 780,
+        "wires": [
+            [
+                "ec7698378115ebe6"
+            ]
+        ]
     },
     {
         "id": "4fa73dd9.83cca4",
