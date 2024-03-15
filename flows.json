@@ -2356,7 +2356,7 @@
         "y": 780,
         "wires": [
             [
-                "c115ac8a531d3f51"
+                "72f6824e9fd68a26"
             ]
         ]
     },
@@ -2429,7 +2429,7 @@
         "type": "file",
         "z": "84c549d1e2d30361",
         "name": "",
-        "filename": "filename",
+        "filename": "filePath",
         "filenameType": "msg",
         "appendNewline": true,
         "createDir": true,
