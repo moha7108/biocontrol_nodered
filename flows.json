@@ -325,8 +325,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 500,
-        "y": 700,
+        "x": 1300,
+        "y": 1380,
         "wires": [
             []
         ]
@@ -665,8 +665,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 500,
-        "y": 760,
+        "x": 1300,
+        "y": 1440,
         "wires": [
             []
         ]
@@ -698,8 +698,8 @@
         "shape": "circle",
         "showGlow": true,
         "name": "",
-        "x": 1550,
-        "y": 600,
+        "x": 1410,
+        "y": 500,
         "wires": []
     },
     {
@@ -707,15 +707,15 @@
         "type": "function",
         "z": "1511cab232daa7c5",
         "name": "Valve",
-        "func": "msg.payload = msg.payload.valve.state;\n\nreturn msg;",
+        "func": "msg.payload = global.get('valve.state');\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1330,
-        "y": 600,
+        "x": 1190,
+        "y": 500,
         "wires": [
             [
                 "480d80a38cce8d2a"
@@ -727,15 +727,15 @@
         "type": "function",
         "z": "1511cab232daa7c5",
         "name": "last changed",
-        "func": "msg.payload = msg.payload.valve.last_changed;\n\nreturn msg;",
+        "func": "msg.payload = global.get('BME680.last_changed');\n\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1330,
-        "y": 680,
+        "x": 1190,
+        "y": 580,
         "wires": [
             [
                 "fe525fedfb319a7a"
@@ -759,8 +759,8 @@
         "font": "",
         "fontSize": 16,
         "color": "#000000",
-        "x": 1540,
-        "y": 680,
+        "x": 1400,
+        "y": 580,
         "wires": []
     },
     {
@@ -876,8 +876,8 @@
         "name": "",
         "files": "/home/pi/biocontrol/api/relays.json",
         "recursive": "",
-        "x": 240,
-        "y": 1120,
+        "x": 160,
+        "y": 540,
         "wires": [
             [
                 "801c6cd50c4cbc10"
@@ -948,8 +948,8 @@
         "sendError": false,
         "encoding": "none",
         "allProps": false,
-        "x": 560,
-        "y": 1120,
+        "x": 480,
+        "y": 540,
         "wires": [
             [
                 "254ef488a7b56056"
@@ -964,8 +964,8 @@
         "property": "payload",
         "action": "",
         "pretty": false,
-        "x": 790,
-        "y": 1120,
+        "x": 710,
+        "y": 540,
         "wires": [
             [
                 "b91f3d039f655e81"
@@ -1096,7 +1096,7 @@
             },
             {
                 "t": "set",
-                "p": "valve.last_updated",
+                "p": "valve.last_changed",
                 "pt": "global",
                 "to": "payload.control_data.valve.last_changed",
                 "tot": "msg"
@@ -1114,11 +1114,13 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 980,
-        "y": 1120,
+        "x": 900,
+        "y": 540,
         "wires": [
             [
-                "045baba4dc73ded5"
+                "045baba4dc73ded5",
+                "c711c25ff843e8c9",
+                "7d0175297475ba1f"
             ]
         ]
     },
@@ -1157,8 +1159,8 @@
         "links": [
             "289d322d910983dd"
         ],
-        "x": 1205,
-        "y": 1120,
+        "x": 1185,
+        "y": 440,
         "wires": []
     },
     {
@@ -1174,8 +1176,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 490,
-        "y": 660,
+        "x": 1290,
+        "y": 1340,
         "wires": [
             []
         ]
