@@ -2998,10 +2998,12 @@
         "tooltip": "",
         "color": "",
         "bgcolor": "",
+        "className": "",
         "icon": "autorenew",
-        "payload": "/home/pi",
+        "payload": "/home/pi/biocontrol/data",
         "payloadType": "str",
         "topic": "change",
+        "topicType": "str",
         "x": 190,
         "y": 220,
         "wires": [
