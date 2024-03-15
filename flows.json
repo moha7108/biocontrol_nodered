@@ -2431,7 +2431,7 @@
         "name": "",
         "filename": "filePath",
         "filenameType": "msg",
-        "appendNewline": true,
+        "appendNewline": false,
         "createDir": true,
         "overwriteFile": "false",
         "encoding": "none",
