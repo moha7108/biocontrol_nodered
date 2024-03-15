@@ -2347,7 +2347,7 @@
         "hdrout": "none",
         "multi": "one",
         "ret": "\\n",
-        "temp": "timestamp, Temperature_C, Humidity_% ",
+        "temp": "",
         "skip": "0",
         "strings": true,
         "include_empty_strings": "",
