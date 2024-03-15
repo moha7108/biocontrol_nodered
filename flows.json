@@ -233,7 +233,7 @@
         "tab": "71ab2643ddde15fa",
         "order": 1,
         "disp": true,
-        "width": 11
+        "width": 8
     },
     {
         "id": "7bb5db2a6fd16341",
@@ -242,7 +242,7 @@
         "tab": "71ab2643ddde15fa",
         "order": 2,
         "disp": true,
-        "width": 6
+        "width": 8
     },
     {
         "id": "197509112fb46fb6",
@@ -512,7 +512,7 @@
         "z": "1511cab232daa7c5",
         "name": "",
         "group": "7bb5db2a6fd16341",
-        "order": 0,
+        "order": 1,
         "width": 0,
         "height": 0,
         "gtype": "compass",
@@ -540,7 +540,7 @@
         "z": "1511cab232daa7c5",
         "name": "",
         "group": "7bb5db2a6fd16341",
-        "order": 1,
+        "order": 2,
         "width": 0,
         "height": 0,
         "gtype": "gage",
@@ -568,7 +568,7 @@
         "z": "1511cab232daa7c5",
         "name": "",
         "group": "7bb5db2a6fd16341",
-        "order": 2,
+        "order": 3,
         "width": 0,
         "height": 0,
         "gtype": "gage",
@@ -595,7 +595,7 @@
         "type": "ui_text",
         "z": "1511cab232daa7c5",
         "group": "7bb5db2a6fd16341",
-        "order": 2,
+        "order": 4,
         "width": 0,
         "height": 0,
         "name": "",
