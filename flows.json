@@ -1889,6 +1889,13 @@
                 "pt": "flow",
                 "to": "default_trail",
                 "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "sub_folder",
+                "pt": "flow",
+                "to": "",
+                "tot": "str"
             }
         ],
         "action": "",
