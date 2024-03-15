@@ -902,6 +902,335 @@
         ]
     },
     {
+        "id": "7dc819c3d9738393",
+        "type": "watch",
+        "z": "1511cab232daa7c5",
+        "name": "",
+        "files": "/home/pi/biocontrol/api/BME680.json",
+        "recursive": "",
+        "x": 240,
+        "y": 960,
+        "wires": [
+            [
+                "acb82e759a7df628"
+            ]
+        ]
+    },
+    {
+        "id": "acb82e759a7df628",
+        "type": "file in",
+        "z": "1511cab232daa7c5",
+        "name": "",
+        "filename": "payload",
+        "filenameType": "msg",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 580,
+        "y": 960,
+        "wires": [
+            [
+                "6b53949b53d887be"
+            ]
+        ]
+    },
+    {
+        "id": "bc61153d128b1054",
+        "type": "watch",
+        "z": "1511cab232daa7c5",
+        "name": "",
+        "files": "/home/pi/biocontrol/api/k30_CO2.json",
+        "recursive": "",
+        "x": 250,
+        "y": 1040,
+        "wires": [
+            [
+                "9c51e9c3d9f10ef1"
+            ]
+        ]
+    },
+    {
+        "id": "844bd3f9545542bf",
+        "type": "watch",
+        "z": "1511cab232daa7c5",
+        "name": "",
+        "files": "/home/pi/biocontrol/api/relays.json",
+        "recursive": "",
+        "x": 240,
+        "y": 1120,
+        "wires": [
+            [
+                "801c6cd50c4cbc10"
+            ]
+        ]
+    },
+    {
+        "id": "6b53949b53d887be",
+        "type": "json",
+        "z": "1511cab232daa7c5",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 810,
+        "y": 960,
+        "wires": [
+            [
+                "407d6d83d10766ec"
+            ]
+        ]
+    },
+    {
+        "id": "9c51e9c3d9f10ef1",
+        "type": "file in",
+        "z": "1511cab232daa7c5",
+        "name": "",
+        "filename": "payload",
+        "filenameType": "msg",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 580,
+        "y": 1040,
+        "wires": [
+            [
+                "0f6dbfbe2a106f66"
+            ]
+        ]
+    },
+    {
+        "id": "0f6dbfbe2a106f66",
+        "type": "json",
+        "z": "1511cab232daa7c5",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 810,
+        "y": 1040,
+        "wires": [
+            [
+                "19eb848f682edfd0"
+            ]
+        ]
+    },
+    {
+        "id": "801c6cd50c4cbc10",
+        "type": "file in",
+        "z": "1511cab232daa7c5",
+        "name": "",
+        "filename": "payload",
+        "filenameType": "msg",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 560,
+        "y": 1120,
+        "wires": [
+            [
+                "254ef488a7b56056"
+            ]
+        ]
+    },
+    {
+        "id": "254ef488a7b56056",
+        "type": "json",
+        "z": "1511cab232daa7c5",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 790,
+        "y": 1120,
+        "wires": [
+            [
+                "b91f3d039f655e81"
+            ]
+        ]
+    },
+    {
+        "id": "407d6d83d10766ec",
+        "type": "change",
+        "z": "1511cab232daa7c5",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "BME680.status",
+                "pt": "global",
+                "to": "payload.status",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "BME680.timestamp",
+                "pt": "global",
+                "to": "payload.sensor_data.timestamp",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "BME680.temperature",
+                "pt": "global",
+                "to": "payload.sensor_data['Temperature,C']",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "BME680.humidity",
+                "pt": "global",
+                "to": "payload.sensor_data['Humidity,%RH']",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1020,
+        "y": 960,
+        "wires": [
+            [
+                "c33fae8b7df7328f"
+            ]
+        ]
+    },
+    {
+        "id": "19eb848f682edfd0",
+        "type": "change",
+        "z": "1511cab232daa7c5",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "K30.status",
+                "pt": "global",
+                "to": "payload.status",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "K30.timestamp",
+                "pt": "global",
+                "to": "payload.sensor_data.timestamp",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "K30.temperature",
+                "pt": "global",
+                "to": "payload.sensor_data['CO2_ppm']",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1000,
+        "y": 1040,
+        "wires": [
+            [
+                "399bb5a2769de941"
+            ]
+        ]
+    },
+    {
+        "id": "b91f3d039f655e81",
+        "type": "change",
+        "z": "1511cab232daa7c5",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "valve.status",
+                "pt": "global",
+                "to": "payload.status",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "valve.timestamp",
+                "pt": "global",
+                "to": "payload['last updated']",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "valve.last_updated",
+                "pt": "global",
+                "to": "payload.control_data.valve.last_changed",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "valve.state",
+                "pt": "global",
+                "to": "payload.control_data.valve.state",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 980,
+        "y": 1120,
+        "wires": [
+            [
+                "045baba4dc73ded5"
+            ]
+        ]
+    },
+    {
+        "id": "c33fae8b7df7328f",
+        "type": "link out",
+        "z": "1511cab232daa7c5",
+        "name": "BM680",
+        "mode": "link",
+        "links": [
+            "6e3659c294ebd97d"
+        ],
+        "x": 1225,
+        "y": 960,
+        "wires": []
+    },
+    {
+        "id": "399bb5a2769de941",
+        "type": "link out",
+        "z": "1511cab232daa7c5",
+        "name": "K30",
+        "mode": "link",
+        "links": [
+            "c347cfe8a37ecca4"
+        ],
+        "x": 1215,
+        "y": 1040,
+        "wires": []
+    },
+    {
+        "id": "045baba4dc73ded5",
+        "type": "link out",
+        "z": "1511cab232daa7c5",
+        "name": "valve",
+        "mode": "link",
+        "links": [
+            "289d322d910983dd"
+        ],
+        "x": 1205,
+        "y": 1120,
+        "wires": []
+    },
+    {
         "id": "fed70d426beeee57",
         "type": "ui_form",
         "z": "1f3381b7ec8c93c4",
@@ -1468,8 +1797,8 @@
         "topicType": "msg",
         "splitLayout": "",
         "className": "",
-        "x": 130,
-        "y": 440,
+        "x": 290,
+        "y": 360,
         "wires": [
             [
                 "fcbd6ea02ea21338"
@@ -1502,8 +1831,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 360,
-        "y": 440,
+        "x": 520,
+        "y": 360,
         "wires": [
             [
                 "09b2ee64d6133d10",
@@ -1533,8 +1862,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 150,
-        "y": 340,
+        "x": 310,
+        "y": 260,
         "wires": [
             [
                 "44e5b0180ded2a7a"
@@ -1560,8 +1889,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 360,
-        "y": 340,
+        "x": 520,
+        "y": 260,
         "wires": [
             []
         ]
@@ -1578,11 +1907,10 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 580,
-        "y": 440,
+        "x": 740,
+        "y": 360,
         "wires": [
             [
-                "09a73fbaa38a69ea",
                 "2897c5af7bdd1c5c"
             ]
         ]
@@ -1599,8 +1927,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 700,
-        "y": 340,
+        "x": 580,
+        "y": 780,
         "wires": []
     },
     {
@@ -1622,8 +1950,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 820,
-        "y": 440,
+        "x": 980,
+        "y": 360,
         "wires": [
             [
                 "aac2cc395e5e5993"
@@ -1647,8 +1975,8 @@
         "font": "",
         "fontSize": 16,
         "color": "#000000",
-        "x": 1230,
-        "y": 500,
+        "x": 1390,
+        "y": 420,
         "wires": []
     },
     {
@@ -1668,8 +1996,8 @@
         "font": "",
         "fontSize": 16,
         "color": "#000000",
-        "x": 1230,
-        "y": 440,
+        "x": 1390,
+        "y": 360,
         "wires": []
     },
     {
@@ -1689,8 +2017,8 @@
         "font": "",
         "fontSize": 16,
         "color": "#000000",
-        "x": 1230,
-        "y": 560,
+        "x": 1390,
+        "y": 480,
         "wires": []
     },
     {
@@ -1712,8 +2040,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1040,
-        "y": 560,
+        "x": 1200,
+        "y": 480,
         "wires": [
             [
                 "e4ac7948022717d6"
@@ -1739,8 +2067,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1040,
-        "y": 500,
+        "x": 1200,
+        "y": 420,
         "wires": [
             [
                 "f3f776b25a8b2e27"
@@ -1766,8 +2094,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1040,
-        "y": 440,
+        "x": 1200,
+        "y": 360,
         "wires": [
             [
                 "e039be2e80299445"
@@ -1775,192 +2103,205 @@
         ]
     },
     {
-        "id": "7dc819c3d9738393",
-        "type": "watch",
+        "id": "6e3659c294ebd97d",
+        "type": "link in",
         "z": "84c549d1e2d30361",
-        "name": "",
-        "files": "/home/pi/biocontrol/api/BME680.json",
-        "recursive": "",
-        "x": 220,
+        "name": "bme680 in 1",
+        "links": [
+            "c33fae8b7df7328f"
+        ],
+        "x": 205,
         "y": 780,
         "wires": [
             [
-                "acb82e759a7df628"
+                "80e1ddffbc301262"
             ]
         ]
     },
     {
-        "id": "acb82e759a7df628",
-        "type": "file in",
+        "id": "c347cfe8a37ecca4",
+        "type": "link in",
         "z": "84c549d1e2d30361",
-        "name": "",
-        "filename": "payload",
-        "filenameType": "msg",
-        "format": "utf8",
-        "chunk": false,
-        "sendError": false,
-        "encoding": "none",
-        "allProps": false,
-        "x": 560,
-        "y": 780,
+        "name": "K30 in 1",
+        "links": [
+            "399bb5a2769de941"
+        ],
+        "x": 205,
+        "y": 840,
         "wires": [
             [
-                "6b53949b53d887be"
+                "102e7b527bbc7c9e"
             ]
         ]
     },
     {
-        "id": "bc61153d128b1054",
-        "type": "watch",
+        "id": "289d322d910983dd",
+        "type": "link in",
+        "z": "84c549d1e2d30361",
+        "name": "valve in 1",
+        "links": [
+            "045baba4dc73ded5"
+        ],
+        "x": 205,
+        "y": 900,
+        "wires": [
+            [
+                "e7d44ed1c58820ca"
+            ]
+        ]
+    },
+    {
+        "id": "80e1ddffbc301262",
+        "type": "switch",
         "z": "84c549d1e2d30361",
         "name": "",
-        "files": "/home/pi/biocontrol/api/k30_CO2.json",
-        "recursive": "",
+        "property": "logging",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 350,
+        "y": 780,
+        "wires": [
+            [
+                "09a73fbaa38a69ea"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "102e7b527bbc7c9e",
+        "type": "switch",
+        "z": "84c549d1e2d30361",
+        "name": "",
+        "property": "logging",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 350,
+        "y": 840,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "e7d44ed1c58820ca",
+        "type": "switch",
+        "z": "84c549d1e2d30361",
+        "name": "",
+        "property": "logging",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 350,
+        "y": 900,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "69b88b50b6a953fa",
+        "type": "ui_button",
+        "z": "84c549d1e2d30361",
+        "name": "",
+        "group": "86c33c0260dcb520",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Start Logging",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 250,
+        "y": 500,
+        "wires": [
+            [
+                "145c365fed9a9f08"
+            ]
+        ]
+    },
+    {
+        "id": "70e75f37f730798c",
+        "type": "ui_button",
+        "z": "84c549d1e2d30361",
+        "name": "",
+        "group": "86c33c0260dcb520",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Stop Logging",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
         "x": 230,
-        "y": 860,
+        "y": 620,
         "wires": [
             [
-                "9c51e9c3d9f10ef1"
+                "c6fc1698512b3570"
             ]
         ]
     },
     {
-        "id": "844bd3f9545542bf",
-        "type": "watch",
-        "z": "84c549d1e2d30361",
-        "name": "",
-        "files": "/home/pi/biocontrol/api/relays.json",
-        "recursive": "",
-        "x": 220,
-        "y": 940,
-        "wires": [
-            [
-                "801c6cd50c4cbc10"
-            ]
-        ]
-    },
-    {
-        "id": "6b53949b53d887be",
-        "type": "json",
-        "z": "84c549d1e2d30361",
-        "name": "",
-        "property": "payload",
-        "action": "",
-        "pretty": false,
-        "x": 790,
-        "y": 780,
-        "wires": [
-            [
-                "407d6d83d10766ec"
-            ]
-        ]
-    },
-    {
-        "id": "9c51e9c3d9f10ef1",
-        "type": "file in",
-        "z": "84c549d1e2d30361",
-        "name": "",
-        "filename": "payload",
-        "filenameType": "msg",
-        "format": "utf8",
-        "chunk": false,
-        "sendError": false,
-        "encoding": "none",
-        "allProps": false,
-        "x": 560,
-        "y": 860,
-        "wires": [
-            [
-                "0f6dbfbe2a106f66"
-            ]
-        ]
-    },
-    {
-        "id": "0f6dbfbe2a106f66",
-        "type": "json",
-        "z": "84c549d1e2d30361",
-        "name": "",
-        "property": "payload",
-        "action": "",
-        "pretty": false,
-        "x": 790,
-        "y": 860,
-        "wires": [
-            [
-                "19eb848f682edfd0",
-                "40c14d3b7afa1991"
-            ]
-        ]
-    },
-    {
-        "id": "801c6cd50c4cbc10",
-        "type": "file in",
-        "z": "84c549d1e2d30361",
-        "name": "",
-        "filename": "payload",
-        "filenameType": "msg",
-        "format": "utf8",
-        "chunk": false,
-        "sendError": false,
-        "encoding": "none",
-        "allProps": false,
-        "x": 540,
-        "y": 940,
-        "wires": [
-            [
-                "254ef488a7b56056"
-            ]
-        ]
-    },
-    {
-        "id": "254ef488a7b56056",
-        "type": "json",
-        "z": "84c549d1e2d30361",
-        "name": "",
-        "property": "payload",
-        "action": "",
-        "pretty": false,
-        "x": 770,
-        "y": 940,
-        "wires": [
-            [
-                "b91f3d039f655e81"
-            ]
-        ]
-    },
-    {
-        "id": "407d6d83d10766ec",
+        "id": "145c365fed9a9f08",
         "type": "change",
         "z": "84c549d1e2d30361",
         "name": "",
         "rules": [
             {
                 "t": "set",
-                "p": "BME680.status",
-                "pt": "global",
-                "to": "payload.status",
-                "tot": "msg"
+                "p": "logging",
+                "pt": "flow",
+                "to": "true",
+                "tot": "bool"
             },
             {
                 "t": "set",
-                "p": "BME680.timestamp",
-                "pt": "global",
-                "to": "payload.sensor_data.timestamp",
-                "tot": "msg"
-            },
-            {
-                "t": "set",
-                "p": "BME680.temperature",
-                "pt": "global",
-                "to": "payload.sensor_data['Temperature,C']",
-                "tot": "msg"
-            },
-            {
-                "t": "set",
-                "p": "BME680.humidity",
-                "pt": "global",
-                "to": "payload.sensor_data['Humidity,%RH']",
-                "tot": "msg"
+                "p": "enabled",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
             }
         ],
         "action": "",
@@ -1968,54 +2309,34 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1000,
-        "y": 780,
+        "x": 440,
+        "y": 500,
         "wires": [
-            []
+            [
+                "69b88b50b6a953fa",
+                "6d40a8baf51331b9"
+            ]
         ]
     },
     {
-        "id": "40c14d3b7afa1991",
-        "type": "debug",
-        "z": "84c549d1e2d30361",
-        "name": "debug 2",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 920,
-        "y": 700,
-        "wires": []
-    },
-    {
-        "id": "19eb848f682edfd0",
+        "id": "c6fc1698512b3570",
         "type": "change",
         "z": "84c549d1e2d30361",
         "name": "",
         "rules": [
             {
                 "t": "set",
-                "p": "K30.status",
-                "pt": "global",
-                "to": "payload.status",
-                "tot": "msg"
+                "p": "logging",
+                "pt": "flow",
+                "to": "false",
+                "tot": "bool"
             },
             {
                 "t": "set",
-                "p": "K30.timestamp",
-                "pt": "global",
-                "to": "payload.sensor_data.timestamp",
-                "tot": "msg"
-            },
-            {
-                "t": "set",
-                "p": "K30.temperature",
-                "pt": "global",
-                "to": "payload.sensor_data['CO2_ppm']",
-                "tot": "msg"
+                "p": "enabled",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
             }
         ],
         "action": "",
@@ -2023,56 +2344,13 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 980,
-        "y": 860,
+        "x": 460,
+        "y": 620,
         "wires": [
-            []
-        ]
-    },
-    {
-        "id": "b91f3d039f655e81",
-        "type": "change",
-        "z": "84c549d1e2d30361",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "valve.status",
-                "pt": "global",
-                "to": "payload.status",
-                "tot": "msg"
-            },
-            {
-                "t": "set",
-                "p": "valve.timestamp",
-                "pt": "global",
-                "to": "payload['last updated']",
-                "tot": "msg"
-            },
-            {
-                "t": "set",
-                "p": "valve.last_updated",
-                "pt": "global",
-                "to": "payload.control_data.valve.last_changed",
-                "tot": "msg"
-            },
-            {
-                "t": "set",
-                "p": "valve.state",
-                "pt": "global",
-                "to": "payload.control_data.valve.state",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 960,
-        "y": 940,
-        "wires": [
-            []
+            [
+                "69b88b50b6a953fa",
+                "6d40a8baf51331b9"
+            ]
         ]
     },
     {
