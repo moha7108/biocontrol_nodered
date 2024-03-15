@@ -1379,7 +1379,7 @@
         "type": "function",
         "z": "1f3381b7ec8c93c4",
         "name": "function 2",
-        "func": "msg.payload = flow.get('upper_thresh');\n\nreturn msg;",
+        "func": "msg.payload = flow.get('high_thresh');\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
