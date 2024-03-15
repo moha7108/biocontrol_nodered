@@ -313,25 +313,6 @@
         "className": ""
     },
     {
-        "id": "4d174bbfe0c7ac84",
-        "type": "mqtt in",
-        "z": "1511cab232daa7c5",
-        "name": "",
-        "topic": "monitors/TEMP",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "b139ee09158667bc",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 1300,
-        "y": 1380,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "df4732804393c9f0",
         "type": "mqtt out",
         "z": "1511cab232daa7c5",
@@ -345,38 +326,9 @@
         "correl": "",
         "expiry": "",
         "broker": "b139ee09158667bc",
-        "x": 500,
-        "y": 1380,
+        "x": 520,
+        "y": 700,
         "wires": []
-    },
-    {
-        "id": "8ea977857efa0979",
-        "type": "inject",
-        "z": "1511cab232daa7c5",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 660,
-        "y": 1240,
-        "wires": [
-            [
-                "df4732804393c9f0"
-            ]
-        ]
     },
     {
         "id": "8aead07bf6a62cf3",
@@ -404,7 +356,7 @@
         "z": "1511cab232daa7c5",
         "name": "CO2",
         "group": "fecde59cd7368a46",
-        "order": 1,
+        "order": 2,
         "width": 0,
         "height": 0,
         "gtype": "gage",
@@ -431,7 +383,7 @@
         "type": "ui_text",
         "z": "1511cab232daa7c5",
         "group": "fecde59cd7368a46",
-        "order": 2,
+        "order": 3,
         "width": 0,
         "height": 0,
         "name": "",
@@ -460,7 +412,7 @@
         "finalize": "",
         "libs": [],
         "x": 1340,
-        "y": 140,
+        "y": 120,
         "wires": [
             [
                 "c0d39a85cb1a53d5"
@@ -479,7 +431,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1350,
+        "x": 1330,
         "y": 240,
         "wires": [
             [
@@ -500,7 +452,7 @@
         "finalize": "",
         "libs": [],
         "x": 1350,
-        "y": 400,
+        "y": 360,
         "wires": [
             [
                 "229f3572f49017d6"
@@ -540,7 +492,7 @@
         "finalize": "",
         "libs": [],
         "x": 1340,
-        "y": 340,
+        "y": 320,
         "wires": [
             [
                 "062a4ece982c7961"
@@ -553,7 +505,7 @@
         "z": "1511cab232daa7c5",
         "name": "",
         "group": "7bb5db2a6fd16341",
-        "order": 1,
+        "order": 2,
         "width": 0,
         "height": 0,
         "gtype": "compass",
@@ -581,7 +533,7 @@
         "z": "1511cab232daa7c5",
         "name": "",
         "group": "7bb5db2a6fd16341",
-        "order": 2,
+        "order": 3,
         "width": 0,
         "height": 0,
         "gtype": "compass",
@@ -609,7 +561,7 @@
         "z": "1511cab232daa7c5",
         "name": "",
         "group": "7bb5db2a6fd16341",
-        "order": 3,
+        "order": 4,
         "width": 0,
         "height": 0,
         "gtype": "gage",
@@ -628,7 +580,7 @@
         "diff": false,
         "className": "",
         "x": 1630,
-        "y": 340,
+        "y": 320,
         "wires": []
     },
     {
@@ -636,7 +588,7 @@
         "type": "ui_text",
         "z": "1511cab232daa7c5",
         "group": "7bb5db2a6fd16341",
-        "order": 4,
+        "order": 5,
         "width": 0,
         "height": 0,
         "name": "",
@@ -649,33 +601,14 @@
         "fontSize": 16,
         "color": "#000000",
         "x": 1630,
-        "y": 400,
+        "y": 360,
         "wires": []
-    },
-    {
-        "id": "76b52134ec1d46bc",
-        "type": "mqtt in",
-        "z": "1511cab232daa7c5",
-        "name": "",
-        "topic": "monitors/RELAY",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "b139ee09158667bc",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 1300,
-        "y": 1440,
-        "wires": [
-            []
-        ]
     },
     {
         "id": "480d80a38cce8d2a",
         "type": "ui_led",
         "z": "1511cab232daa7c5",
-        "order": 1,
+        "order": 2,
         "group": "5ab9c7a919d4e89d",
         "width": 10,
         "height": 3,
@@ -734,8 +667,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1190,
-        "y": 580,
+        "x": 1210,
+        "y": 540,
         "wires": [
             [
                 "fe525fedfb319a7a"
@@ -747,7 +680,7 @@
         "type": "ui_text",
         "z": "1511cab232daa7c5",
         "group": "5ab9c7a919d4e89d",
-        "order": 2,
+        "order": 3,
         "width": 0,
         "height": 0,
         "name": "",
@@ -759,8 +692,8 @@
         "font": "",
         "fontSize": 16,
         "color": "#000000",
-        "x": 1400,
-        "y": 580,
+        "x": 1420,
+        "y": 540,
         "wires": []
     },
     {
@@ -769,7 +702,7 @@
         "z": "1511cab232daa7c5",
         "name": "",
         "group": "5ab9c7a919d4e89d",
-        "order": 4,
+        "order": 5,
         "width": 0,
         "height": 0,
         "passthru": false,
@@ -783,8 +716,8 @@
         "payloadType": "str",
         "topic": "topic",
         "topicType": "msg",
-        "x": 190,
-        "y": 1320,
+        "x": 210,
+        "y": 640,
         "wires": [
             [
                 "df4732804393c9f0"
@@ -797,7 +730,7 @@
         "z": "1511cab232daa7c5",
         "name": "",
         "group": "5ab9c7a919d4e89d",
-        "order": 5,
+        "order": 6,
         "width": 0,
         "height": 0,
         "passthru": false,
@@ -811,8 +744,8 @@
         "payloadType": "str",
         "topic": "topic",
         "topicType": "msg",
-        "x": 200,
-        "y": 1400,
+        "x": 220,
+        "y": 720,
         "wires": [
             [
                 "df4732804393c9f0"
@@ -1027,7 +960,8 @@
                 "fbe40413eee47130",
                 "ec6e350407a067f2",
                 "d5d1e7885f9b6a7e",
-                "359c9de04b8ee7f9"
+                "359c9de04b8ee7f9",
+                "3cbe20bf11ae4594"
             ]
         ]
     },
@@ -1070,7 +1004,8 @@
             [
                 "399bb5a2769de941",
                 "8aead07bf6a62cf3",
-                "e8949620bf82baa1"
+                "e8949620bf82baa1",
+                "70b022b1941e35ce"
             ]
         ]
     },
@@ -1120,7 +1055,8 @@
             [
                 "045baba4dc73ded5",
                 "c711c25ff843e8c9",
-                "7d0175297475ba1f"
+                "7d0175297475ba1f",
+                "aa64ff0980dd0998"
             ]
         ]
     },
@@ -1133,7 +1069,7 @@
         "links": [
             "6e3659c294ebd97d"
         ],
-        "x": 1355,
+        "x": 1115,
         "y": 200,
         "wires": []
     },
@@ -1146,8 +1082,8 @@
         "links": [
             "c347cfe8a37ecca4"
         ],
-        "x": 1285,
-        "y": 20,
+        "x": 1115,
+        "y": 40,
         "wires": []
     },
     {
@@ -1159,28 +1095,132 @@
         "links": [
             "289d322d910983dd"
         ],
-        "x": 1185,
+        "x": 1105,
         "y": 440,
         "wires": []
     },
     {
-        "id": "197509112fb46fb6",
-        "type": "mqtt in",
+        "id": "58f9c08226d3ffa1",
+        "type": "ui_text",
         "z": "1511cab232daa7c5",
+        "group": "fecde59cd7368a46",
+        "order": 1,
+        "width": 0,
+        "height": 0,
         "name": "",
-        "topic": "monitors/CO2",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "b139ee09158667bc",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 1290,
-        "y": 1340,
+        "label": "status: ",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 1610,
+        "y": 20,
+        "wires": []
+    },
+    {
+        "id": "70b022b1941e35ce",
+        "type": "function",
+        "z": "1511cab232daa7c5",
+        "name": "CO2 status",
+        "func": "msg.payload= global.get('K30.status');\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1330,
+        "y": 40,
         "wires": [
-            []
+            [
+                "58f9c08226d3ffa1"
+            ]
         ]
+    },
+    {
+        "id": "3cbe20bf11ae4594",
+        "type": "function",
+        "z": "1511cab232daa7c5",
+        "name": "BME680 status",
+        "func": "msg.payload= global.get('BME680.status');\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1360,
+        "y": 200,
+        "wires": [
+            [
+                "59b134522aff9c45"
+            ]
+        ]
+    },
+    {
+        "id": "aa64ff0980dd0998",
+        "type": "function",
+        "z": "1511cab232daa7c5",
+        "name": "valve status",
+        "func": "msg.payload= global.get('valve.status');\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1210,
+        "y": 580,
+        "wires": [
+            [
+                "4dde875a66b2a7a4"
+            ]
+        ]
+    },
+    {
+        "id": "4dde875a66b2a7a4",
+        "type": "ui_text",
+        "z": "1511cab232daa7c5",
+        "group": "5ab9c7a919d4e89d",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "status: ",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 1390,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "59b134522aff9c45",
+        "type": "ui_text",
+        "z": "1511cab232daa7c5",
+        "group": "7bb5db2a6fd16341",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "status: ",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 1630,
+        "y": 200,
+        "wires": []
     },
     {
         "id": "fed70d426beeee57",
@@ -1189,7 +1229,7 @@
         "name": "Set Thresh form",
         "label": "",
         "group": "5ab9c7a919d4e89d",
-        "order": 7,
+        "order": 8,
         "width": 0,
         "height": 0,
         "options": [
@@ -1267,7 +1307,7 @@
         "type": "ui_text",
         "z": "1f3381b7ec8c93c4",
         "group": "5ab9c7a919d4e89d",
-        "order": 8,
+        "order": 9,
         "width": 5,
         "height": 1,
         "name": "",
@@ -1328,7 +1368,7 @@
         "type": "ui_text",
         "z": "1f3381b7ec8c93c4",
         "group": "5ab9c7a919d4e89d",
-        "order": 9,
+        "order": 10,
         "width": 5,
         "height": 1,
         "name": "",
@@ -1350,7 +1390,7 @@
         "z": "1f3381b7ec8c93c4",
         "name": "",
         "group": "5ab9c7a919d4e89d",
-        "order": 10,
+        "order": 11,
         "width": 0,
         "height": 0,
         "passthru": false,
@@ -1378,7 +1418,7 @@
         "z": "1f3381b7ec8c93c4",
         "name": "",
         "group": "5ab9c7a919d4e89d",
-        "order": 11,
+        "order": 12,
         "width": 0,
         "height": 0,
         "passthru": false,
@@ -1675,7 +1715,7 @@
         "type": "ui_text",
         "z": "1f3381b7ec8c93c4",
         "group": "5ab9c7a919d4e89d",
-        "order": 6,
+        "order": 7,
         "width": 10,
         "height": 2,
         "name": "Automode Label",
@@ -1696,7 +1736,7 @@
         "type": "ui_text",
         "z": "1f3381b7ec8c93c4",
         "group": "5ab9c7a919d4e89d",
-        "order": 3,
+        "order": 4,
         "width": 0,
         "height": 0,
         "name": "Manual Label",
@@ -2219,7 +2259,7 @@
         "z": "84c549d1e2d30361",
         "name": "",
         "group": "86c33c0260dcb520",
-        "order": 4,
+        "order": 6,
         "width": 0,
         "height": 0,
         "passthru": false,
