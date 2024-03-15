@@ -2352,7 +2352,7 @@
         "strings": true,
         "include_empty_strings": "",
         "include_null_values": "",
-        "x": 910,
+        "x": 1010,
         "y": 780,
         "wires": [
             [
@@ -2396,10 +2396,11 @@
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "false",
+        "complete": "true",
+        "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1080,
+        "x": 1180,
         "y": 780,
         "wires": []
     },
@@ -2407,20 +2408,37 @@
         "id": "9d697c2b303b4377",
         "type": "function",
         "z": "84c549d1e2d30361",
-        "name": "function 4",
-        "func": "delete msg.payload.status;\nreturn msg;",
+        "name": "processeing BME680",
+        "func": "delete msg.payload.status;\n\nlet filename_base = flow.get('filename_base');\n\nmsg.filename = filename_base + \"_BME680.csv\"\n\n\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 720,
+        "x": 780,
         "y": 780,
         "wires": [
             [
                 "83df850bd16657cd"
             ]
+        ]
+    },
+    {
+        "id": "72f6824e9fd68a26",
+        "type": "file",
+        "z": "84c549d1e2d30361",
+        "name": "",
+        "filename": "file_path",
+        "filenameType": "msg",
+        "appendNewline": true,
+        "createDir": true,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 1360,
+        "y": 660,
+        "wires": [
+            []
         ]
     },
     {
