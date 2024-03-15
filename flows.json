@@ -1630,7 +1630,7 @@
         "height": 0,
         "name": "",
         "label": "File:",
-        "format": "{{msg.payload}}.csv",
+        "format": "{{msg.payload}}_{sensor}.csv",
         "layout": "row-left",
         "className": "",
         "style": false,
