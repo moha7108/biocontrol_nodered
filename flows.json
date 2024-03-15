@@ -1811,7 +1811,7 @@
         "y": 120,
         "wires": [
             [
-                "81ed7b18e9e43d8f"
+                "2da85652bbe16502"
             ]
         ]
     },
@@ -1825,7 +1825,7 @@
         "height": 0,
         "name": "",
         "label": "lower:",
-        "format": "{{flow.get('lower_thresh')}} ppm",
+        "format": "{{msg.payload}} ppm",
         "layout": "row-left",
         "className": "",
         "style": false,
@@ -1841,17 +1841,19 @@
         "type": "function",
         "z": "1f3381b7ec8c93c4",
         "name": "function 1",
-        "func": "msg.payload = flow.get('lower_thresh')\n\nreturn msg;",
+        "func": "msg.payload = flow.get('lower_thresh');\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 700,
-        "y": 80,
+        "x": 620,
+        "y": 180,
         "wires": [
-            []
+            [
+                "81ed7b18e9e43d8f"
+            ]
         ]
     }
 ]
