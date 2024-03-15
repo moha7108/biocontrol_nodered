@@ -1538,7 +1538,7 @@
         "type": "function",
         "z": "84c549d1e2d30361",
         "name": "function 3",
-        "func": "let trial_name =  flow.get('trial_name');\nlet sub_folder;\n\n if (flow.get('sub_folder')){\n    sub_folder = '/' + flow.get('sub_folder');\n } else{\n     sub_folder = '/'\n }\n\n\nmsg.payload= \"/home/pi/biocontrol/data\" + sub_folder + trial_name +\".csv\";\n\nreturn msg;",
+        "func": "let trial_name =  flow.get('trial_name');\nlet sub_folder;\n\n if (flow.get('sub_folder')){\n    sub_folder = '/' + flow.get('sub_folder');\n } else{\n     sub_folder = '/'\n }\n\n\nmsg.payload= \"/home/pi/biocontrol/data\" + sub_folder + trial_name;\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -1578,7 +1578,7 @@
         "rules": [
             {
                 "t": "set",
-                "p": "filename",
+                "p": "filename_base",
                 "pt": "flow",
                 "to": "payload",
                 "tot": "msg"
@@ -1589,7 +1589,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 780,
+        "x": 800,
         "y": 520,
         "wires": [
             []
