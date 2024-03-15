@@ -1756,11 +1756,12 @@
         "topicType": "msg",
         "splitLayout": "",
         "className": "",
-        "x": 190,
+        "x": 170,
         "y": 120,
         "wires": [
             [
-                "b39379513e0b6ef3"
+                "b39379513e0b6ef3",
+                "74abe7a457e6d011"
             ]
         ]
     },
