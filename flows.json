@@ -908,7 +908,6 @@
         "y": 120,
         "wires": [
             [
-                "b39379513e0b6ef3",
                 "74abe7a457e6d011"
             ]
         ]
@@ -925,8 +924,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 360,
-        "y": 200,
+        "x": 1220,
+        "y": 380,
         "wires": []
     },
     {
@@ -1094,10 +1093,12 @@
         "payloadType": "str",
         "topic": "topic",
         "topicType": "msg",
-        "x": 350,
-        "y": 700,
+        "x": 170,
+        "y": 820,
         "wires": [
-            []
+            [
+                "94bf82c685cb1365"
+            ]
         ]
     },
     {
@@ -1173,30 +1174,181 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 430,
+        "x": 410,
         "y": 440,
         "wires": [
             [
-                "095e49ab7279cef4"
+                "1b777bdec0f1e553",
+                "37d7b1e4bee56d8e"
             ]
         ]
     },
     {
-        "id": "095e49ab7279cef4",
+        "id": "9099f94cd8041260",
+        "type": "mqtt out",
+        "z": "1f3381b7ec8c93c4",
+        "name": "",
+        "topic": "controls/RELAY",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "b139ee09158667bc",
+        "x": 1540,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "a1f0374ec6486513",
         "type": "function",
         "z": "1f3381b7ec8c93c4",
-        "name": "function 3",
-        "func": "flow.get('automode');\n\n\nreturn msg;",
+        "name": "off",
+        "func": "msg.payload = 'off';\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 620,
+        "x": 810,
+        "y": 660,
+        "wires": [
+            [
+                "9099f94cd8041260"
+            ]
+        ]
+    },
+    {
+        "id": "94bf82c685cb1365",
+        "type": "change",
+        "z": "1f3381b7ec8c93c4",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "auto_mode",
+                "pt": "flow",
+                "to": "false",
+                "tot": "bool"
+            },
+            {
+                "t": "set",
+                "p": "enabled",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 140,
+        "y": 580,
+        "wires": [
+            [
+                "714330b3099990b1"
+            ]
+        ]
+    },
+    {
+        "id": "e85c032537059c6f",
+        "type": "delay",
+        "z": "1f3381b7ec8c93c4",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "2",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 840,
+        "y": 320,
+        "wires": [
+            [
+                "1b777bdec0f1e553"
+            ]
+        ]
+    },
+    {
+        "id": "c5c260592a4c2df2",
+        "type": "function",
+        "z": "1f3381b7ec8c93c4",
+        "name": "Check threshold conditions",
+        "func": "let co2 = global.get('CO2')\nlet valve_state = global.get('valve_state')\n\nlet lower_thresh = flow.get('lower_thresh'); \nlet upper_thresh = flow.get('upper_thresh');\n\n\nif (co2 <= lower_thresh && !valve_state){\n    msg.payload = 'on'\n}else if (co2 >= upper_thresh && valve_state) {\n    msg.payload = 'off'\n} else{\n    msg.payload = null\n}\n\n\n\n\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 920,
+        "y": 420,
+        "wires": [
+            [
+                "9099f94cd8041260",
+                "e85c032537059c6f",
+                "b39379513e0b6ef3"
+            ]
+        ]
+    },
+    {
+        "id": "1b777bdec0f1e553",
+        "type": "switch",
+        "z": "1f3381b7ec8c93c4",
+        "name": "",
+        "property": "auto_mode",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 670,
         "y": 440,
         "wires": [
-            []
+            [
+                "c5c260592a4c2df2"
+            ],
+            [
+                "a1f0374ec6486513"
+            ]
+        ]
+    },
+    {
+        "id": "37d7b1e4bee56d8e",
+        "type": "function",
+        "z": "1f3381b7ec8c93c4",
+        "name": "disable",
+        "func": "msg.enabled = false\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 180,
+        "y": 320,
+        "wires": [
+            [
+                "714330b3099990b1"
+            ]
         ]
     },
     {
