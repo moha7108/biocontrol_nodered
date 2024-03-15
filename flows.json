@@ -2362,7 +2362,7 @@
         "name": "",
         "sep": ",",
         "hdrin": "",
-        "hdrout": "none",
+        "hdrout": "all",
         "multi": "one",
         "ret": "\\n",
         "temp": "",
@@ -2406,23 +2406,6 @@
         ]
     },
     {
-        "id": "607525711064f5ce",
-        "type": "debug",
-        "z": "84c549d1e2d30361",
-        "name": "debug 1",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1680,
-        "y": 780,
-        "wires": []
-    },
-    {
         "id": "9d697c2b303b4377",
         "type": "function",
         "z": "84c549d1e2d30361",
@@ -2456,9 +2439,7 @@
         "x": 1380,
         "y": 780,
         "wires": [
-            [
-                "607525711064f5ce"
-            ]
+            []
         ]
     },
     {
