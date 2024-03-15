@@ -233,7 +233,7 @@
         "tab": "71ab2643ddde15fa",
         "order": 1,
         "disp": true,
-        "width": 6
+        "width": 11
     },
     {
         "id": "197509112fb46fb6",
@@ -349,7 +349,7 @@
         "z": "1511cab232daa7c5",
         "name": "CO2",
         "group": "fecde59cd7368a46",
-        "order": 0,
+        "order": 1,
         "width": 0,
         "height": 0,
         "gtype": "gage",
@@ -376,7 +376,7 @@
         "type": "ui_text",
         "z": "1511cab232daa7c5",
         "group": "fecde59cd7368a46",
-        "order": 1,
+        "order": 2,
         "width": 0,
         "height": 0,
         "name": "",
