@@ -1468,7 +1468,7 @@
         "topicType": "msg",
         "splitLayout": "",
         "className": "",
-        "x": 250,
+        "x": 130,
         "y": 440,
         "wires": [
             [
@@ -1502,7 +1502,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 380,
+        "x": 360,
         "y": 440,
         "wires": [
             [
@@ -1560,7 +1560,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 380,
+        "x": 360,
         "y": 340,
         "wires": [
             []
@@ -1773,6 +1773,85 @@
                 "e039be2e80299445"
             ]
         ]
+    },
+    {
+        "id": "7dc819c3d9738393",
+        "type": "watch",
+        "z": "84c549d1e2d30361",
+        "name": "",
+        "files": "/home/pi/biocontrol/api/BME680.json",
+        "recursive": "",
+        "x": 220,
+        "y": 780,
+        "wires": [
+            [
+                "ec7698378115ebe6"
+            ]
+        ]
+    },
+    {
+        "id": "acb82e759a7df628",
+        "type": "file in",
+        "z": "84c549d1e2d30361",
+        "name": "",
+        "filename": "",
+        "filenameType": "str",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 760,
+        "y": 740,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "bc61153d128b1054",
+        "type": "watch",
+        "z": "84c549d1e2d30361",
+        "name": "",
+        "files": "/home/pi/biocontrol/api/k30_CO2.json",
+        "recursive": "",
+        "x": 230,
+        "y": 860,
+        "wires": [
+            [
+                "ec7698378115ebe6"
+            ]
+        ]
+    },
+    {
+        "id": "844bd3f9545542bf",
+        "type": "watch",
+        "z": "84c549d1e2d30361",
+        "name": "",
+        "files": "/home/pi/biocontrol/api/relays.json",
+        "recursive": "",
+        "x": 220,
+        "y": 940,
+        "wires": [
+            [
+                "ec7698378115ebe6"
+            ]
+        ]
+    },
+    {
+        "id": "ec7698378115ebe6",
+        "type": "debug",
+        "z": "84c549d1e2d30361",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 560,
+        "y": 820,
+        "wires": []
     },
     {
         "id": "4fa73dd9.83cca4",
