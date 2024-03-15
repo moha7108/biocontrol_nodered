@@ -1124,7 +1124,7 @@
             },
             {
                 "t": "set",
-                "p": "K30.temperature",
+                "p": "K30.CO2",
                 "pt": "global",
                 "to": "payload.sensor_data['CO2_ppm']",
                 "tot": "msg"
