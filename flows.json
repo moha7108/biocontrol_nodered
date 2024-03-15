@@ -1066,8 +1066,8 @@
         "payloadType": "str",
         "topic": "topic",
         "topicType": "msg",
-        "x": 350,
-        "y": 380,
+        "x": 210,
+        "y": 440,
         "wires": [
             []
         ]
@@ -1096,6 +1096,60 @@
         "y": 700,
         "wires": [
             []
+        ]
+    },
+    {
+        "id": "e64c622e278020f9",
+        "type": "change",
+        "z": "1f3381b7ec8c93c4",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "auto_mode",
+                "pt": "flow",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 410,
+        "y": 40,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8f43db06886dde95",
+        "type": "inject",
+        "z": "1f3381b7ec8c93c4",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 40,
+        "wires": [
+            [
+                "e64c622e278020f9"
+            ]
         ]
     },
     {
