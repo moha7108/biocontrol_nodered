@@ -1825,15 +1825,33 @@
         "height": 0,
         "name": "",
         "label": "lower:",
-        "format": "{{flow.lower_thresh}} ppm",
+        "format": "{{flow.get('lower_thresh')}} ppm",
         "layout": "row-left",
         "className": "",
         "style": false,
         "font": "",
         "fontSize": 16,
         "color": "#000000",
-        "x": 630,
-        "y": 200,
+        "x": 770,
+        "y": 240,
         "wires": []
+    },
+    {
+        "id": "2da85652bbe16502",
+        "type": "function",
+        "z": "1f3381b7ec8c93c4",
+        "name": "function 1",
+        "func": "msg.payload = flow.get('lower_thresh')\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 700,
+        "y": 80,
+        "wires": [
+            []
+        ]
     }
 ]
