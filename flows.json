@@ -1726,7 +1726,7 @@
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "sub_folder",
+                "to": "filename_base\t",
                 "tot": "flow"
             }
         ],
