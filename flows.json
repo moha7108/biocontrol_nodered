@@ -1923,7 +1923,9 @@
         "x": 770,
         "y": 940,
         "wires": [
-            []
+            [
+                "b91f3d039f655e81"
+            ]
         ]
     },
     {
@@ -2023,6 +2025,52 @@
         "reg": false,
         "x": 980,
         "y": 860,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b91f3d039f655e81",
+        "type": "change",
+        "z": "84c549d1e2d30361",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "valve.status",
+                "pt": "global",
+                "to": "payload.status",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "valve.timestamp",
+                "pt": "global",
+                "to": "payload['last updated']",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "valve.last_updated",
+                "pt": "global",
+                "to": "payload.control_data.valve.last_changed",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "valve.state",
+                "pt": "msg",
+                "to": "payload.control_data.valve.state",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 960,
+        "y": 940,
         "wires": [
             []
         ]
