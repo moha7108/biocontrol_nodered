@@ -304,8 +304,8 @@
         "correl": "",
         "expiry": "",
         "broker": "b139ee09158667bc",
-        "x": 280,
-        "y": 560,
+        "x": 340,
+        "y": 740,
         "wires": []
     },
     {
@@ -329,8 +329,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 280,
-        "y": 380,
+        "x": 360,
+        "y": 660,
         "wires": [
             [
                 "df4732804393c9f0"
@@ -609,6 +609,43 @@
         "color": "#000000",
         "x": 870,
         "y": 400,
+        "wires": []
+    },
+    {
+        "id": "76b52134ec1d46bc",
+        "type": "mqtt in",
+        "z": "1511cab232daa7c5",
+        "name": "",
+        "topic": "monitors/RELAY",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "b139ee09158667bc",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 280,
+        "y": 460,
+        "wires": [
+            [
+                "1bd58e0c23a4837c"
+            ]
+        ]
+    },
+    {
+        "id": "1bd58e0c23a4837c",
+        "type": "debug",
+        "z": "1511cab232daa7c5",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 520,
         "wires": []
     },
     {
