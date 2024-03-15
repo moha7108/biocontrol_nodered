@@ -1785,7 +1785,7 @@
         "y": 780,
         "wires": [
             [
-                "ec7698378115ebe6"
+                "acb82e759a7df628"
             ]
         ]
     },
@@ -1794,17 +1794,19 @@
         "type": "file in",
         "z": "84c549d1e2d30361",
         "name": "",
-        "filename": "",
-        "filenameType": "str",
+        "filename": "payload",
+        "filenameType": "msg",
         "format": "utf8",
         "chunk": false,
         "sendError": false,
         "encoding": "none",
         "allProps": false,
-        "x": 760,
-        "y": 740,
+        "x": 560,
+        "y": 780,
         "wires": [
-            []
+            [
+                "ec7698378115ebe6"
+            ]
         ]
     },
     {
@@ -1817,9 +1819,7 @@
         "x": 230,
         "y": 860,
         "wires": [
-            [
-                "ec7698378115ebe6"
-            ]
+            []
         ]
     },
     {
@@ -1832,9 +1832,7 @@
         "x": 220,
         "y": 940,
         "wires": [
-            [
-                "ec7698378115ebe6"
-            ]
+            []
         ]
     },
     {
@@ -1849,8 +1847,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 560,
-        "y": 820,
+        "x": 820,
+        "y": 800,
         "wires": []
     },
     {
