@@ -1750,8 +1750,8 @@
             "upper_thresh": ""
         },
         "payload": "",
-        "submit": "submit",
-        "cancel": "cancel",
+        "submit": "Set Values",
+        "cancel": "clear",
         "topic": "topic",
         "topicType": "msg",
         "splitLayout": "",
@@ -1759,7 +1759,25 @@
         "x": 190,
         "y": 120,
         "wires": [
-            []
+            [
+                "b39379513e0b6ef3"
+            ]
         ]
+    },
+    {
+        "id": "b39379513e0b6ef3",
+        "type": "debug",
+        "z": "1f3381b7ec8c93c4",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 320,
+        "y": 120,
+        "wires": []
     }
 ]
