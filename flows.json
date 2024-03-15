@@ -1223,6 +1223,37 @@
         "wires": []
     },
     {
+        "id": "e37cdb232cfb4fd2",
+        "type": "inject",
+        "z": "1511cab232daa7c5",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "offline",
+        "payloadType": "str",
+        "x": 1130,
+        "y": 900,
+        "wires": [
+            [
+                "4dde875a66b2a7a4",
+                "59b134522aff9c45",
+                "58f9c08226d3ffa1"
+            ]
+        ]
+    },
+    {
         "id": "fed70d426beeee57",
         "type": "ui_form",
         "z": "1f3381b7ec8c93c4",
