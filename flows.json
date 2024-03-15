@@ -1811,7 +1811,8 @@
         "y": 120,
         "wires": [
             [
-                "2da85652bbe16502"
+                "2da85652bbe16502",
+                "323acb3f6defcb93"
             ]
         ]
     },
@@ -1832,8 +1833,8 @@
         "font": "",
         "fontSize": 16,
         "color": "#000000",
-        "x": 770,
-        "y": 240,
+        "x": 870,
+        "y": 120,
         "wires": []
     },
     {
@@ -1849,11 +1850,52 @@
         "finalize": "",
         "libs": [],
         "x": 620,
-        "y": 180,
+        "y": 120,
         "wires": [
             [
                 "81ed7b18e9e43d8f"
             ]
         ]
+    },
+    {
+        "id": "323acb3f6defcb93",
+        "type": "function",
+        "z": "1f3381b7ec8c93c4",
+        "name": "function 2",
+        "func": "msg.payload = flow.get('upper_thresh');\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 620,
+        "y": 160,
+        "wires": [
+            [
+                "6c8d08e414cf71ce"
+            ]
+        ]
+    },
+    {
+        "id": "6c8d08e414cf71ce",
+        "type": "ui_text",
+        "z": "1f3381b7ec8c93c4",
+        "group": "229d21b14c29ee3e",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "upper:",
+        "format": "{{msg.payload}} ppm",
+        "layout": "row-left",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 870,
+        "y": 160,
+        "wires": []
     }
 ]
