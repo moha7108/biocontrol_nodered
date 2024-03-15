@@ -1796,7 +1796,7 @@
         "name": "",
         "filename": "payload",
         "filenameType": "msg",
-        "format": "utf8",
+        "format": "",
         "chunk": false,
         "sendError": false,
         "encoding": "none",
