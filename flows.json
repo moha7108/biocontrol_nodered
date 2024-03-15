@@ -1940,7 +1940,7 @@
                 "t": "set",
                 "p": "BME680.timestamp",
                 "pt": "global",
-                "to": "payload.timestamp",
+                "to": "payload.sensor_data.timestamp",
                 "tot": "msg"
             }
         ],
