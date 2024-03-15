@@ -8,19 +8,19 @@
         "env": []
     },
     {
-        "id": "6ec95de2e0350d99",
-        "type": "tab",
-        "label": "WIFI Management",
-        "disabled": false,
-        "info": ""
-    },
-    {
         "id": "1f3381b7ec8c93c4",
         "type": "tab",
         "label": "automode",
         "disabled": false,
         "info": "",
         "env": []
+    },
+    {
+        "id": "6ec95de2e0350d99",
+        "type": "tab",
+        "label": "WIFI Management",
+        "disabled": false,
+        "info": ""
     },
     {
         "id": "907bbe60.b555f",
@@ -296,7 +296,8 @@
         "wires": [
             [
                 "8aead07bf6a62cf3",
-                "e8949620bf82baa1"
+                "e8949620bf82baa1",
+                "7c48704391f75a86"
             ]
         ]
     },
@@ -663,7 +664,8 @@
         "wires": [
             [
                 "c711c25ff843e8c9",
-                "7d0175297475ba1f"
+                "7d0175297475ba1f",
+                "8f622d8c60b837f4"
             ]
         ]
     },
@@ -813,6 +815,287 @@
             [
                 "df4732804393c9f0"
             ]
+        ]
+    },
+    {
+        "id": "7c48704391f75a86",
+        "type": "change",
+        "z": "1511cab232daa7c5",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "CO2",
+                "pt": "global",
+                "to": "payload.CO2_ppm",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 560,
+        "y": 20,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8f622d8c60b837f4",
+        "type": "change",
+        "z": "1511cab232daa7c5",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "valve_state",
+                "pt": "global",
+                "to": "payload.valve.state",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 380,
+        "y": 580,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fed70d426beeee57",
+        "type": "ui_form",
+        "z": "1f3381b7ec8c93c4",
+        "name": "",
+        "label": "",
+        "group": "229d21b14c29ee3e",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "options": [
+            {
+                "label": "Lower CO2 Threshold",
+                "value": "lower_thresh",
+                "type": "number",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "upper CO2 Threshold",
+                "value": "upper_thresh",
+                "type": "number",
+                "required": true,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "lower_thresh": "",
+            "upper_thresh": ""
+        },
+        "payload": "",
+        "submit": "Set Values",
+        "cancel": "clear",
+        "topic": "topic",
+        "topicType": "msg",
+        "splitLayout": "",
+        "className": "",
+        "x": 170,
+        "y": 120,
+        "wires": [
+            [
+                "b39379513e0b6ef3",
+                "74abe7a457e6d011"
+            ]
+        ]
+    },
+    {
+        "id": "b39379513e0b6ef3",
+        "type": "debug",
+        "z": "1f3381b7ec8c93c4",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 360,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "74abe7a457e6d011",
+        "type": "change",
+        "z": "1f3381b7ec8c93c4",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "lower_thresh",
+                "pt": "flow",
+                "to": "payload.lower_thresh",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "upper_thresh",
+                "pt": "flow",
+                "to": "payload.upper_thresh",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 380,
+        "y": 120,
+        "wires": [
+            [
+                "2da85652bbe16502",
+                "323acb3f6defcb93"
+            ]
+        ]
+    },
+    {
+        "id": "81ed7b18e9e43d8f",
+        "type": "ui_text",
+        "z": "1f3381b7ec8c93c4",
+        "group": "229d21b14c29ee3e",
+        "order": 2,
+        "width": 4,
+        "height": 1,
+        "name": "",
+        "label": "lower:",
+        "format": "{{msg.payload}} ppm",
+        "layout": "row-left",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 870,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "2da85652bbe16502",
+        "type": "function",
+        "z": "1f3381b7ec8c93c4",
+        "name": "function 1",
+        "func": "msg.payload = flow.get('lower_thresh');\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 620,
+        "y": 120,
+        "wires": [
+            [
+                "81ed7b18e9e43d8f"
+            ]
+        ]
+    },
+    {
+        "id": "323acb3f6defcb93",
+        "type": "function",
+        "z": "1f3381b7ec8c93c4",
+        "name": "function 2",
+        "func": "msg.payload = flow.get('upper_thresh');\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 620,
+        "y": 160,
+        "wires": [
+            [
+                "6c8d08e414cf71ce"
+            ]
+        ]
+    },
+    {
+        "id": "6c8d08e414cf71ce",
+        "type": "ui_text",
+        "z": "1f3381b7ec8c93c4",
+        "group": "229d21b14c29ee3e",
+        "order": 3,
+        "width": 4,
+        "height": 1,
+        "name": "",
+        "label": "upper:",
+        "format": "{{msg.payload}} ppm",
+        "layout": "row-left",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 870,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "714330b3099990b1",
+        "type": "ui_button",
+        "z": "1f3381b7ec8c93c4",
+        "name": "",
+        "group": "229d21b14c29ee3e",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Start",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 350,
+        "y": 380,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ed31a2d3ff66e797",
+        "type": "ui_button",
+        "z": "1f3381b7ec8c93c4",
+        "name": "",
+        "group": "229d21b14c29ee3e",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Stop",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 350,
+        "y": 700,
+        "wires": [
+            []
         ]
     },
     {
@@ -1717,185 +2000,6 @@
         "color": "#000000",
         "x": 950,
         "y": 580,
-        "wires": []
-    },
-    {
-        "id": "fed70d426beeee57",
-        "type": "ui_form",
-        "z": "1f3381b7ec8c93c4",
-        "name": "",
-        "label": "",
-        "group": "229d21b14c29ee3e",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "options": [
-            {
-                "label": "Lower CO2 Threshold",
-                "value": "lower_thresh",
-                "type": "number",
-                "required": true,
-                "rows": null
-            },
-            {
-                "label": "upper CO2 Threshold",
-                "value": "upper_thresh",
-                "type": "number",
-                "required": true,
-                "rows": null
-            }
-        ],
-        "formValue": {
-            "lower_thresh": "",
-            "upper_thresh": ""
-        },
-        "payload": "",
-        "submit": "Set Values",
-        "cancel": "clear",
-        "topic": "topic",
-        "topicType": "msg",
-        "splitLayout": "",
-        "className": "",
-        "x": 170,
-        "y": 120,
-        "wires": [
-            [
-                "b39379513e0b6ef3",
-                "74abe7a457e6d011"
-            ]
-        ]
-    },
-    {
-        "id": "b39379513e0b6ef3",
-        "type": "debug",
-        "z": "1f3381b7ec8c93c4",
-        "name": "debug 1",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 360,
-        "y": 200,
-        "wires": []
-    },
-    {
-        "id": "74abe7a457e6d011",
-        "type": "change",
-        "z": "1f3381b7ec8c93c4",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "lower_thresh",
-                "pt": "flow",
-                "to": "payload.lower_thresh",
-                "tot": "msg"
-            },
-            {
-                "t": "set",
-                "p": "upper_thresh",
-                "pt": "flow",
-                "to": "payload.upper_thresh",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 380,
-        "y": 120,
-        "wires": [
-            [
-                "2da85652bbe16502",
-                "323acb3f6defcb93"
-            ]
-        ]
-    },
-    {
-        "id": "81ed7b18e9e43d8f",
-        "type": "ui_text",
-        "z": "1f3381b7ec8c93c4",
-        "group": "229d21b14c29ee3e",
-        "order": 2,
-        "width": 4,
-        "height": 1,
-        "name": "",
-        "label": "lower:",
-        "format": "{{msg.payload}} ppm",
-        "layout": "row-left",
-        "className": "",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#000000",
-        "x": 870,
-        "y": 120,
-        "wires": []
-    },
-    {
-        "id": "2da85652bbe16502",
-        "type": "function",
-        "z": "1f3381b7ec8c93c4",
-        "name": "function 1",
-        "func": "msg.payload = flow.get('lower_thresh');\n\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 620,
-        "y": 120,
-        "wires": [
-            [
-                "81ed7b18e9e43d8f"
-            ]
-        ]
-    },
-    {
-        "id": "323acb3f6defcb93",
-        "type": "function",
-        "z": "1f3381b7ec8c93c4",
-        "name": "function 2",
-        "func": "msg.payload = flow.get('upper_thresh');\n\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 620,
-        "y": 160,
-        "wires": [
-            [
-                "6c8d08e414cf71ce"
-            ]
-        ]
-    },
-    {
-        "id": "6c8d08e414cf71ce",
-        "type": "ui_text",
-        "z": "1f3381b7ec8c93c4",
-        "group": "229d21b14c29ee3e",
-        "order": 3,
-        "width": 4,
-        "height": 1,
-        "name": "",
-        "label": "upper:",
-        "format": "{{msg.payload}} ppm",
-        "layout": "row-left",
-        "className": "",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#000000",
-        "x": 870,
-        "y": 160,
         "wires": []
     }
 ]
