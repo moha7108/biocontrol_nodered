@@ -1718,5 +1718,48 @@
         "x": 950,
         "y": 580,
         "wires": []
+    },
+    {
+        "id": "fed70d426beeee57",
+        "type": "ui_form",
+        "z": "1f3381b7ec8c93c4",
+        "name": "",
+        "label": "",
+        "group": "229d21b14c29ee3e",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "options": [
+            {
+                "label": "Lower CO2 Threshold",
+                "value": "lower_thresh",
+                "type": "number",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "upper CO2 Threshold",
+                "value": "upper_thresh",
+                "type": "number",
+                "required": true,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "lower_thresh": "",
+            "upper_thresh": ""
+        },
+        "payload": "",
+        "submit": "submit",
+        "cancel": "cancel",
+        "topic": "topic",
+        "topicType": "msg",
+        "splitLayout": "",
+        "className": "",
+        "x": 190,
+        "y": 120,
+        "wires": [
+            []
+        ]
     }
 ]
