@@ -1886,7 +1886,10 @@
         "x": 790,
         "y": 860,
         "wires": [
-            []
+            [
+                "19eb848f682edfd0",
+                "40c14d3b7afa1991"
+            ]
         ]
     },
     {
@@ -1949,6 +1952,13 @@
                 "pt": "global",
                 "to": "payload.sensor_data['Temperature,C']",
                 "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "BME680.humidity",
+                "pt": "global",
+                "to": "payload.sensor_data['Humidity,%RH']",
+                "tot": "msg"
             }
         ],
         "action": "",
@@ -1959,9 +1969,7 @@
         "x": 1000,
         "y": 780,
         "wires": [
-            [
-                "40c14d3b7afa1991"
-            ]
+            []
         ]
     },
     {
@@ -1976,9 +1984,48 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1220,
-        "y": 780,
+        "x": 920,
+        "y": 700,
         "wires": []
+    },
+    {
+        "id": "19eb848f682edfd0",
+        "type": "change",
+        "z": "84c549d1e2d30361",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "K30.status",
+                "pt": "global",
+                "to": "payload.status",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "K30.timestamp",
+                "pt": "global",
+                "to": "payload.sensor_data.timestamp",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "K30.temperature",
+                "pt": "global",
+                "to": "payload.sensor_data['CO2_ppm']",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 980,
+        "y": 860,
+        "wires": [
+            []
+        ]
     },
     {
         "id": "4fa73dd9.83cca4",
