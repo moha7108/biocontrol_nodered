@@ -1285,7 +1285,7 @@
         "type": "function",
         "z": "1f3381b7ec8c93c4",
         "name": "Check threshold conditions",
-        "func": "let co2 = global.get('CO2')\nlet valve_state = global.get('valve_state')\n\nlet lower_thresh = flow.get('lower_thresh'); \nlet upper_thresh = flow.get('upper_thresh');\n\n\nif (co2 <= lower_thresh && !valve_state){\n    msg.payload = 'on'\n}else if (co2 >= upper_thresh && valve_state) {\n    msg.payload = 'off'\n} else{\n    msg.payload = null\n}\n\n\n\n\n\nreturn msg;",
+        "func": "let co2 = global.get('CO2')\nlet valve_state = global.get('valve_state')\n\nlet lower_thresh = flow.get('lower_thresh'); \nlet upper_thresh = flow.get('upper_thresh');\n\n\nif (co2 <= lower_thresh && !valve_state){\n    msg.payload = \"on\"\n}else if (co2 >= upper_thresh && valve_state) {\n    msg.payload = \"off\"\n} else{\n    msg.payload = null\n}\n\n\n\n\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
