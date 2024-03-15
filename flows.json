@@ -354,10 +354,10 @@
         "height": 0,
         "gtype": "gage",
         "title": "gauge",
-        "label": "units",
+        "label": "ppm",
         "format": "{{value}}",
         "min": 0,
-        "max": 10,
+        "max": "5000",
         "colors": [
             "#00b500",
             "#e6e600",
