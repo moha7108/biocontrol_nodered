@@ -236,6 +236,15 @@
         "width": 11
     },
     {
+        "id": "7bb5db2a6fd16341",
+        "type": "ui_group",
+        "name": "Group 2",
+        "tab": "71ab2643ddde15fa",
+        "order": 2,
+        "disp": true,
+        "width": 6
+    },
+    {
         "id": "197509112fb46fb6",
         "type": "mqtt in",
         "z": "1511cab232daa7c5",
@@ -273,7 +282,12 @@
         "x": 280,
         "y": 280,
         "wires": [
-            []
+            [
+                "fbe40413eee47130",
+                "359c9de04b8ee7f9",
+                "ec6e350407a067f2",
+                "d5d1e7885f9b6a7e"
+            ]
         ]
     },
     {
@@ -327,7 +341,7 @@
         "id": "8aead07bf6a62cf3",
         "type": "function",
         "z": "1511cab232daa7c5",
-        "name": "function 1",
+        "name": "CO2",
         "func": "msg.payload= msg.payload.CO2_ppm;\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
@@ -335,7 +349,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 560,
+        "x": 550,
         "y": 80,
         "wires": [
             [
@@ -396,7 +410,7 @@
         "id": "e8949620bf82baa1",
         "type": "function",
         "z": "1511cab232daa7c5",
-        "name": "function 2",
+        "name": "CO2 timestamp",
         "func": "msg.payload= msg.payload.timestamp;\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
@@ -404,13 +418,198 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 560,
+        "x": 580,
         "y": 140,
         "wires": [
             [
                 "c0d39a85cb1a53d5"
             ]
         ]
+    },
+    {
+        "id": "fbe40413eee47130",
+        "type": "function",
+        "z": "1511cab232daa7c5",
+        "name": "Temp",
+        "func": "msg.payload = msg.payload[\"Temperature,C\"];\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 590,
+        "y": 240,
+        "wires": [
+            [
+                "db0ce8bd4e554418"
+            ]
+        ]
+    },
+    {
+        "id": "359c9de04b8ee7f9",
+        "type": "function",
+        "z": "1511cab232daa7c5",
+        "name": "timestamp",
+        "func": "msg.payload= msg.payload.timestamp;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 590,
+        "y": 400,
+        "wires": [
+            [
+                "229f3572f49017d6"
+            ]
+        ]
+    },
+    {
+        "id": "ec6e350407a067f2",
+        "type": "function",
+        "z": "1511cab232daa7c5",
+        "name": "Humidity",
+        "func": "msg.payload = msg.payload[\"Humidity,%RH\"];\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 280,
+        "wires": [
+            [
+                "e5beaebfd00f8195"
+            ]
+        ]
+    },
+    {
+        "id": "d5d1e7885f9b6a7e",
+        "type": "function",
+        "z": "1511cab232daa7c5",
+        "name": "Pressure",
+        "func": "msg.payload= msg.payload[\"Pressure,hPa\"];\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 340,
+        "wires": [
+            [
+                "062a4ece982c7961"
+            ]
+        ]
+    },
+    {
+        "id": "db0ce8bd4e554418",
+        "type": "ui_gauge",
+        "z": "1511cab232daa7c5",
+        "name": "",
+        "group": "7bb5db2a6fd16341",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "gauge",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": 10,
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 850,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "e5beaebfd00f8195",
+        "type": "ui_gauge",
+        "z": "1511cab232daa7c5",
+        "name": "",
+        "group": "7bb5db2a6fd16341",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "gauge",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": 10,
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 850,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "062a4ece982c7961",
+        "type": "ui_gauge",
+        "z": "1511cab232daa7c5",
+        "name": "",
+        "group": "7bb5db2a6fd16341",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "gauge",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": 10,
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 850,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "229f3572f49017d6",
+        "type": "ui_text",
+        "z": "1511cab232daa7c5",
+        "group": "7bb5db2a6fd16341",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "timestamp:",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 850,
+        "y": 400,
+        "wires": []
     },
     {
         "id": "1a2fc62c1335c250",
