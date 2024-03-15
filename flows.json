@@ -1549,7 +1549,8 @@
         "y": 440,
         "wires": [
             [
-                "09a73fbaa38a69ea"
+                "09a73fbaa38a69ea",
+                "2897c5af7bdd1c5c"
             ]
         ]
     },
@@ -1568,6 +1569,31 @@
         "x": 800,
         "y": 440,
         "wires": []
+    },
+    {
+        "id": "2897c5af7bdd1c5c",
+        "type": "change",
+        "z": "84c549d1e2d30361",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "filename",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 780,
+        "y": 520,
+        "wires": [
+            []
+        ]
     },
     {
         "id": "4fa73dd9.83cca4",
