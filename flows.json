@@ -697,8 +697,8 @@
         "id": "7d0175297475ba1f",
         "type": "function",
         "z": "1511cab232daa7c5",
-        "name": "timestamp",
-        "func": "msg.payload= msg.payload.timestamp;\n\nreturn msg;",
+        "name": "last changed",
+        "func": "msg.payload = msg.payload.last_changed;\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -708,8 +708,31 @@
         "x": 590,
         "y": 540,
         "wires": [
-            []
+            [
+                "fe525fedfb319a7a"
+            ]
         ]
+    },
+    {
+        "id": "fe525fedfb319a7a",
+        "type": "ui_text",
+        "z": "1511cab232daa7c5",
+        "group": "5ab9c7a919d4e89d",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Last changed:",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 800,
+        "y": 540,
+        "wires": []
     },
     {
         "id": "1a2fc62c1335c250",
