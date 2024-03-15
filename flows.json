@@ -1942,6 +1942,13 @@
                 "pt": "global",
                 "to": "payload.sensor_data.timestamp",
                 "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "BME680.temperature",
+                "pt": "global",
+                "to": "payload.sensor_data['Temperature,C']",
+                "tot": "str"
             }
         ],
         "action": "",
