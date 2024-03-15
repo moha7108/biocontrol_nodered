@@ -2059,7 +2059,7 @@
             {
                 "t": "set",
                 "p": "valve.state",
-                "pt": "msg",
+                "pt": "global",
                 "to": "payload.control_data.valve.state",
                 "tot": "msg"
             }
