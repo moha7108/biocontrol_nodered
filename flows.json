@@ -637,26 +637,10 @@
         "y": 460,
         "wires": [
             [
-                "1bd58e0c23a4837c",
-                "c711c25ff843e8c9"
+                "c711c25ff843e8c9",
+                "7d0175297475ba1f"
             ]
         ]
-    },
-    {
-        "id": "1bd58e0c23a4837c",
-        "type": "debug",
-        "z": "1511cab232daa7c5",
-        "name": "debug 1",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 520,
-        "y": 520,
-        "wires": []
     },
     {
         "id": "480d80a38cce8d2a",
@@ -685,8 +669,8 @@
         "shape": "circle",
         "showGlow": true,
         "name": "",
-        "x": 870,
-        "y": 520,
+        "x": 810,
+        "y": 460,
         "wires": []
     },
     {
@@ -701,12 +685,30 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 650,
-        "y": 620,
+        "x": 590,
+        "y": 460,
         "wires": [
             [
                 "480d80a38cce8d2a"
             ]
+        ]
+    },
+    {
+        "id": "7d0175297475ba1f",
+        "type": "function",
+        "z": "1511cab232daa7c5",
+        "name": "timestamp",
+        "func": "msg.payload= msg.payload.timestamp;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 590,
+        "y": 540,
+        "wires": [
+            []
         ]
     },
     {
