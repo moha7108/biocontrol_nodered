@@ -2324,12 +2324,21 @@
         "type": "inject",
         "z": "67e1ea71ee09ad87",
         "name": "Init",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
         "repeat": "",
         "crontab": "",
         "once": true,
         "onceDelay": 0.1,
         "topic": "change",
-        "payload": "/home/pi",
+        "payload": "/home/pi/biocontrol/data",
         "payloadType": "str",
         "x": 190,
         "y": 140,
@@ -2353,10 +2362,12 @@
         "tooltip": "",
         "color": "",
         "bgcolor": "",
+        "className": "",
         "icon": "refresh",
         "payload": "",
         "payloadType": "str",
         "topic": "refresh",
+        "topicType": "str",
         "x": 180,
         "y": 180,
         "wires": [
@@ -2874,7 +2885,11 @@
         "name": "Folder handling",
         "func": "let folder = context.get(\"folder\");\nif (folder===undefined) {\n    folder=\"/\";\n    context.set(\"folder\", folder);\n}\n\nlet hidden = context.get(\"hidden\");\nif (hidden===undefined) {\n    hidden=false;\n    context.set(\"hidden\", hidden);\n}\n\nif (msg.topic===\"up\") {\n    var the_arr = folder.split('/');\n    the_arr.pop();\n    folder=the_arr.join('/'); \n    context.set(\"folder\", folder);\n}\nif (msg.topic===\"change\") {\n    folder=msg.payload;    \n    context.set(\"folder\", folder);\n}\nif (msg.topic===\"hidden\") {\n    hidden=msg.payload;    \n    context.set(\"hidden\", hidden);\n}\n\nmsg.payload = {\"start\":folder, \"hidden\": hidden};\nreturn msg;",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
         "x": 380,
         "y": 240,
         "wires": [
