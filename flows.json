@@ -1819,7 +1819,9 @@
         "x": 230,
         "y": 860,
         "wires": [
-            []
+            [
+                "9c51e9c3d9f10ef1"
+            ]
         ]
     },
     {
@@ -1832,24 +1834,10 @@
         "x": 220,
         "y": 940,
         "wires": [
-            []
+            [
+                "801c6cd50c4cbc10"
+            ]
         ]
-    },
-    {
-        "id": "ec7698378115ebe6",
-        "type": "debug",
-        "z": "84c549d1e2d30361",
-        "name": "debug 2",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1040,
-        "y": 800,
-        "wires": []
     },
     {
         "id": "6b53949b53d887be",
@@ -1863,9 +1851,127 @@
         "y": 780,
         "wires": [
             [
-                "ec7698378115ebe6"
+                "407d6d83d10766ec"
             ]
         ]
+    },
+    {
+        "id": "9c51e9c3d9f10ef1",
+        "type": "file in",
+        "z": "84c549d1e2d30361",
+        "name": "",
+        "filename": "payload",
+        "filenameType": "msg",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 560,
+        "y": 860,
+        "wires": [
+            [
+                "0f6dbfbe2a106f66"
+            ]
+        ]
+    },
+    {
+        "id": "0f6dbfbe2a106f66",
+        "type": "json",
+        "z": "84c549d1e2d30361",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 790,
+        "y": 860,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "801c6cd50c4cbc10",
+        "type": "file in",
+        "z": "84c549d1e2d30361",
+        "name": "",
+        "filename": "payload",
+        "filenameType": "msg",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 540,
+        "y": 940,
+        "wires": [
+            [
+                "254ef488a7b56056"
+            ]
+        ]
+    },
+    {
+        "id": "254ef488a7b56056",
+        "type": "json",
+        "z": "84c549d1e2d30361",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 770,
+        "y": 940,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "407d6d83d10766ec",
+        "type": "change",
+        "z": "84c549d1e2d30361",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "BME680.status",
+                "pt": "global",
+                "to": "payload.status",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "BME680.timestamp",
+                "pt": "global",
+                "to": "payload.timestamp",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1000,
+        "y": 780,
+        "wires": [
+            [
+                "40c14d3b7afa1991"
+            ]
+        ]
+    },
+    {
+        "id": "40c14d3b7afa1991",
+        "type": "debug",
+        "z": "84c549d1e2d30361",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1220,
+        "y": 780,
+        "wires": []
     },
     {
         "id": "4fa73dd9.83cca4",
