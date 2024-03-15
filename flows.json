@@ -1776,8 +1776,40 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 320,
-        "y": 120,
+        "x": 280,
+        "y": 520,
         "wires": []
+    },
+    {
+        "id": "74abe7a457e6d011",
+        "type": "change",
+        "z": "1f3381b7ec8c93c4",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "lower_thresh",
+                "pt": "flow",
+                "to": "payload.lower_thresh",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "upper_thresh",
+                "pt": "flow",
+                "to": "payload.upper_thresh",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 380,
+        "y": 120,
+        "wires": [
+            []
+        ]
     }
 ]
