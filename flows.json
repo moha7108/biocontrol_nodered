@@ -1777,8 +1777,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 280,
-        "y": 520,
+        "x": 360,
+        "y": 200,
         "wires": []
     },
     {
@@ -1810,7 +1810,30 @@
         "x": 380,
         "y": 120,
         "wires": [
-            []
+            [
+                "81ed7b18e9e43d8f"
+            ]
         ]
+    },
+    {
+        "id": "81ed7b18e9e43d8f",
+        "type": "ui_text",
+        "z": "1f3381b7ec8c93c4",
+        "group": "229d21b14c29ee3e",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "lower:",
+        "format": "{{flow.lower_thresh}} ppm",
+        "layout": "row-left",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 630,
+        "y": 200,
+        "wires": []
     }
 ]
