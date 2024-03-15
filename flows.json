@@ -43,7 +43,7 @@
         "type": "ui_tab",
         "name": "Wifi",
         "icon": "wifi",
-        "order": 2,
+        "order": 3,
         "disabled": false,
         "hidden": false
     },
@@ -298,6 +298,7 @@
         "type": "ui_tab",
         "name": "Files",
         "icon": "dashboard",
+        "order": 2,
         "disabled": false,
         "hidden": false
     },
