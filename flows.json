@@ -1882,6 +1882,13 @@
                 "pt": "flow",
                 "to": "false",
                 "tot": "bool"
+            },
+            {
+                "t": "set",
+                "p": "trial_name",
+                "pt": "flow",
+                "to": "default_trail",
+                "tot": "str"
             }
         ],
         "action": "",
@@ -2409,7 +2416,7 @@
         "type": "function",
         "z": "84c549d1e2d30361",
         "name": "processeing BME680",
-        "func": "delete msg.payload.status;\nconst fs = global.get('fs');\n\n\nlet filename_base = flow.get('filename_base');\nvar filePath_base = filename_base + \"_BME680_\";\nlet ext = '.csv';\n\nlet index = 1;\nlet latestIndex = 1;\nlet latestFilePath = filePath_base + index + ext;\n\n// Function to check if a file exists\nfunction checkFileExistsSync(filepath) {\n    let flag = true;\n    try {\n        fs.accessSync(filepath, fs.constants.F_OK);\n    } catch (e) {\n        flag = false;\n    }\n    return flag;\n}\n\nfunction checkFile_exceedsMax(filePath){\n\n    const maxLines = 10;\n    let flag=false;\n\n    if (checkFileExistsSync(filePath)){\n\n        const lines = fs.readFileSync(filePath, 'utf8').split('\\n');\n\n        if (lines.length>=maxLines){\n            flag=true;\n        }\n\n    }\n    return flag\n}\n\n\nwhile(true){\n    let filePath = filePath_base + index + ext;\n\n    if (checkFileExistsSync(filePath)){\n        latestFilePath = filePath;\n        latestIndex = index\n        index++;\n    } else{\n        break;\n    }\n}\n\nif (checkFile_exceedsMax(latestFilePath)){\n    latestIndex++\n    msg.filePath = filePath_base + latestIndex + ext;\n}else{\n    msg.filePath= latestFilePath;\n}\n\n\nreturn msg;",
+        "func": "delete msg.payload.status;\nconst fs = global.get('fs');\n\n\nlet filename_base = flow.get('filename_base');\nvar filePath_base = filename_base + \"_BME680_\";\nlet ext = '.csv';\n\nlet index = 1;\nlet latestIndex = 1;\nlet latestFilePath = filePath_base + index + ext;\n\n// Function to check if a file exists\nfunction checkFileExistsSync(filepath) {\n    let flag = true;\n    try {\n        fs.accessSync(filepath, fs.constants.F_OK);\n    } catch (e) {\n        flag = false;\n    }\n    return flag;\n}\n\nfunction checkFile_exceedsMax(filePath){\n\n    const maxLines = 10000;\n    let flag=false;\n\n    if (checkFileExistsSync(filePath)){\n\n        const lines = fs.readFileSync(filePath, 'utf8').split('\\n');\n\n        if (lines.length>maxLines){\n            flag=true;\n        }\n\n    }\n    return flag\n}\n\n\nwhile(true){\n    let filePath = filePath_base + index + ext;\n\n    if (checkFileExistsSync(filePath)){\n        latestFilePath = filePath;\n        latestIndex = index\n        index++;\n    } else{\n        break;\n    }\n}\n\nif (checkFile_exceedsMax(latestFilePath)){\n    latestIndex++\n    msg.filePath = filePath_base + latestIndex + ext;\n}else{\n    msg.filePath= latestFilePath;\n}\n\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -2921,7 +2928,11 @@
         "name": "Format data for chart",
         "func": "var chart = [{\n    \"series\":[],\n    \"data\":[],\n    \"labels\":[msg.filename]\n}];\n\n\n/*\nvar pressure = [];\nvar out2 = [];\n\nfor (var i=0; i<msg.payload.length; i++) {\n    pressure.push({\"x\":msg.payload[i].timestamp, \"y\":msg.payload[i].pressure});\n    out2.push({\"x\":msg.payload[i].timestamp, \"y\":msg.payload[i].out2*200});\n\n}\nchart[0].data.push(pressure);\nchart[0].data.push(out2);\n*/\n\nlet columns = 0;\n\nfor(var series in msg.payload[0]) {\n    if(series!==\"timestamp\") {\n        chart[0].series.push(series);\n        chart[0].data.push([]);\n        columns++;\n    }\n}\n\n\nfor (var j=0; j<msg.payload.length; j++) {\n   for(var i=0;i<columns;i++) {\n       chart[0].data[i].push({\"x\":msg.payload[j].timestamp, \"y\":msg.payload[j][chart[0].series[i]]});\n   } \n}\n\n\n\n\nmsg.payload = chart;\n\nreturn msg;",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
         "x": 880,
         "y": 660,
         "wires": [
@@ -2954,6 +2965,7 @@
         "removeOlderUnit": "3600",
         "cutout": 0,
         "useOneColor": false,
+        "useUTC": false,
         "colors": [
             "#1f77b4",
             "#aec7e8",
@@ -2966,6 +2978,8 @@
             "#c5b0d5"
         ],
         "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
         "x": 1080,
         "y": 660,
         "wires": [
