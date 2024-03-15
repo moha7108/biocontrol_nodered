@@ -232,26 +232,8 @@
         "x": 270,
         "y": 80,
         "wires": [
-            [
-                "13fecd73990121a3"
-            ]
+            []
         ]
-    },
-    {
-        "id": "13fecd73990121a3",
-        "type": "debug",
-        "z": "1511cab232daa7c5",
-        "name": "debug 1",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 520,
-        "y": 80,
-        "wires": []
     },
     {
         "id": "4d174bbfe0c7ac84",
@@ -269,8 +251,53 @@
         "x": 280,
         "y": 160,
         "wires": [
+            []
+        ]
+    },
+    {
+        "id": "df4732804393c9f0",
+        "type": "mqtt out",
+        "z": "1511cab232daa7c5",
+        "name": "",
+        "topic": "controls/RELAY",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "b139ee09158667bc",
+        "x": 500,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "8ea977857efa0979",
+        "type": "inject",
+        "z": "1511cab232daa7c5",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 260,
+        "y": 260,
+        "wires": [
             [
-                "13fecd73990121a3"
+                "df4732804393c9f0"
             ]
         ]
     },
