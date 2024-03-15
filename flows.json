@@ -717,7 +717,7 @@
         "topic": "topic",
         "topicType": "msg",
         "x": 210,
-        "y": 640,
+        "y": 680,
         "wires": [
             [
                 "df4732804393c9f0"
@@ -1290,7 +1290,7 @@
         "topicType": "msg",
         "splitLayout": "",
         "className": "",
-        "x": 200,
+        "x": 160,
         "y": 120,
         "wires": [
             [
@@ -1484,6 +1484,20 @@
                 "pt": "flow",
                 "to": "false",
                 "tot": "bool"
+            },
+            {
+                "t": "set",
+                "p": "lower_thresh",
+                "pt": "flow",
+                "to": "0",
+                "tot": "num"
+            },
+            {
+                "t": "set",
+                "p": "high_thresh",
+                "pt": "flow",
+                "to": "1000",
+                "tot": "num"
             }
         ],
         "action": "",
@@ -1491,7 +1505,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 410,
+        "x": 400,
         "y": 40,
         "wires": [
             []
