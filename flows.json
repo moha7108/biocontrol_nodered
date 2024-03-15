@@ -15,6 +15,14 @@
         "info": ""
     },
     {
+        "id": "1f3381b7ec8c93c4",
+        "type": "tab",
+        "label": "automode",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "907bbe60.b555f",
         "type": "ui_tab",
         "name": "Wifi",
@@ -229,29 +237,46 @@
     {
         "id": "fecde59cd7368a46",
         "type": "ui_group",
-        "name": "Group 1",
+        "name": "K30 Sensor",
         "tab": "71ab2643ddde15fa",
         "order": 1,
         "disp": true,
-        "width": 8
+        "width": "8",
+        "collapse": false,
+        "className": ""
     },
     {
         "id": "7bb5db2a6fd16341",
         "type": "ui_group",
-        "name": "Group 2",
+        "name": "BME680",
         "tab": "71ab2643ddde15fa",
         "order": 2,
         "disp": true,
-        "width": 8
+        "width": "8",
+        "collapse": false,
+        "className": ""
     },
     {
         "id": "5ab9c7a919d4e89d",
         "type": "ui_group",
-        "name": "Group 3",
+        "name": "Relay Valve",
         "tab": "71ab2643ddde15fa",
         "order": 3,
         "disp": true,
-        "width": 8
+        "width": "8",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "229d21b14c29ee3e",
+        "type": "ui_group",
+        "name": "Auto Mode",
+        "tab": "71ab2643ddde15fa",
+        "order": 4,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
     },
     {
         "id": "197509112fb46fb6",
