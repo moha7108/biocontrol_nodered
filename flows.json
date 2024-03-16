@@ -3372,7 +3372,11 @@
         "name": "Change folder",
         "func": "// Get the filename from the flow context\nlet folderselected = flow.get(\"folderselected\");\n\n// check, if the filename is undefined that means it does not exist yet, nothing is selected yet\n// return: do not output anything\nif (folderselected===undefined) {\n    return;\n}\n\nmsg.topic = \"change\";\nmsg.payload = folderselected;\n\nreturn msg;",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
         "x": 420,
         "y": 460,
         "wires": [
@@ -3472,7 +3476,11 @@
         "name": "Format data",
         "func": "// format the data for the dropdown\nmsg.options = [];\nfor (var i=0; i<msg.payload.length; i++) {\n    // This is a foler\n    obj = {};\n    obj [\"[\"+msg.payload[i].name.replace(/^.*(\\\\|\\/|\\:)/, '')+\"]\"]=msg.payload[i].name;\n    msg.options.push(obj);\n}\nmsg.payload={};\nreturn msg;",
         "outputs": 1,
-        "noerr": 0,
+        "timeout": "",
+        "noerr": 3,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
         "x": 790,
         "y": 280,
         "wires": [
@@ -3558,11 +3566,164 @@
         "animate": true,
         "className": "",
         "x": 180,
-        "y": 300,
+        "y": 260,
         "wires": [
             [
                 "3d4e5e51.bdf952"
             ]
+        ]
+    },
+    {
+        "id": "2b9014abbae9e6ed",
+        "type": "ui_button",
+        "z": "67e1ea71ee09ad87",
+        "name": "",
+        "group": "160e81fb.f1c86e",
+        "order": 12,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Delete Folder",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 200,
+        "y": 760,
+        "wires": [
+            [
+                "cbac9bd8f77496d4"
+            ]
+        ]
+    },
+    {
+        "id": "cbac9bd8f77496d4",
+        "type": "change",
+        "z": "67e1ea71ee09ad87",
+        "name": "Set message",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "Delete confirmation",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Are you sure you want to delete this file?",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 390,
+        "y": 760,
+        "wires": [
+            [
+                "298ddf8b2c3a244c"
+            ]
+        ]
+    },
+    {
+        "id": "298ddf8b2c3a244c",
+        "type": "ui_toast",
+        "z": "67e1ea71ee09ad87",
+        "position": "dialog",
+        "displayTime": "3",
+        "highlight": "",
+        "sendall": false,
+        "outputs": 1,
+        "ok": "Yes",
+        "cancel": "No",
+        "raw": false,
+        "className": "",
+        "topic": "",
+        "name": "Confirmation",
+        "x": 590,
+        "y": 760,
+        "wires": [
+            [
+                "4322a69c6e077150"
+            ]
+        ]
+    },
+    {
+        "id": "4322a69c6e077150",
+        "type": "switch",
+        "z": "67e1ea71ee09ad87",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Yes",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 790,
+        "y": 760,
+        "wires": [
+            [
+                "fafd9729c11c256d"
+            ]
+        ]
+    },
+    {
+        "id": "fafd9729c11c256d",
+        "type": "function",
+        "z": "67e1ea71ee09ad87",
+        "name": "get folder",
+        "func": "// Get the filename from the flow context\nlet folderselected = flow.get(\"folderselected\");\n\n// check, if the filename is undefined that means it does not exist yet, nothing is selected yet\n// return: do not output anything\nif (folderselected===undefined) {\n    return;\n}\n\nmsg.payload = \"rm -rf \\\"\" + folderselected + \"\\\"\";\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 960,
+        "y": 760,
+        "wires": [
+            [
+                "493b742c1d710ed9"
+            ]
+        ]
+    },
+    {
+        "id": "493b742c1d710ed9",
+        "type": "exec",
+        "z": "67e1ea71ee09ad87",
+        "command": "",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 1130,
+        "y": 760,
+        "wires": [
+            [
+                "5219875b.c070d8",
+                "993d7272.843ae"
+            ],
+            [],
+            []
         ]
     },
     {
