@@ -2697,7 +2697,7 @@
         "pattern": "*.*",
         "folders": "*",
         "hidden": false,
-        "lstype": "both",
+        "lstype": "files",
         "path": true,
         "single": true,
         "depth": 0,
