@@ -3588,7 +3588,7 @@
         "color": "",
         "bgcolor": "",
         "className": "",
-        "icon": "",
+        "icon": "delete",
         "payload": "",
         "payloadType": "str",
         "topic": "topic",
