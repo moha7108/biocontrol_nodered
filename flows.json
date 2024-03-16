@@ -3688,7 +3688,7 @@
         "type": "function",
         "z": "67e1ea71ee09ad87",
         "name": "get folder",
-        "func": "// Get the filename from the flow context\nlet folderselected = flow.get(\"folderselected\");\n\n// check, if the filename is undefined that means it does not exist yet, nothing is selected yet\n// return: do not output anything\nif (folderselected===undefined) {\n    return;\n}\n\nmsg.payload = \"rm -rf\\\"\" + folderselected + \"\\\"\";\n\nreturn msg;",
+        "func": "// Get the filename from the flow context\nlet folderselected = flow.get(\"folderselected\");\n\n// check, if the filename is undefined that means it does not exist yet, nothing is selected yet\n// return: do not output anything\nif (folderselected===undefined) {\n    return;\n}\n\nmsg.payload = \"rm -rf \\\"\" + folderselected + \"\\\"\";\n\nreturn msg;",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
